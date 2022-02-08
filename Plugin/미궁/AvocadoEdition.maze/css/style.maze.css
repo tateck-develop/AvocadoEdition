@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+html			{background:#333 !important;}
+html:before		{display:none !important;}
+
+.maze-content	{padding:150px 0 50px;}
+.maze-answer	{text-align:center; padding-bottom:150px;}
+
+.maze-answer .input			{width:300px; margin:0 auto; text-align:center;}
+.maze-answer .input input	{height:30px; border:none; background:#fff !important; color:#000 !important; width:150px;}
+.maze-answer .input button	{display:inline-block; width:101px; height:31px; background:#000; color:#fff; border:none;}
+
+.maze-answer .error	{padding-top:20px; font-size:13px; color:#e15e5e;}

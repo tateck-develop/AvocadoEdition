@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.raid-progress-box {display:block; position:relative; margin:10px auto; text-align:center;}
+.raid-progress-box .raid-title {font-size:25px; line-height:1.4;}
+.raid-progress-box .raid-title span {display:block; font-size:14px;}
+.raid-progress-box .able-counter {margin:10px 0;}
+
+.raid-progress-box .progress-bar {display:block; position:relative; margin:15px 0; height:6px; background:rgba(0,0,0,.1); border:1px solid #000;}
+.raid-progress-box .progress-bar > span {display:block; position:absolute; top:0; left:0; bottom:0; background:#ff2c2c;}
