@@ -19,7 +19,7 @@ Avocado Edition : Original Character Community Solution by GUNUBOARD Custom
 
 -----------------------------
 
-#기여
+# 기여
 아보카도 에디션을 사용하면서 발견한 문제 및 버그, 개선사항 등을 이슈 게시판을 통해 올릴 수 있습니다.
 기존 코드를 변경 혹은 제시하실 경우 아래와 같은 절차를 통해 반영할 수 있습니다.
 
