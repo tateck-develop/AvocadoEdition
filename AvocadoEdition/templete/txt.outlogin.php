@@ -1,0 +1,1 @@
+<?=outlogin('basic')?>

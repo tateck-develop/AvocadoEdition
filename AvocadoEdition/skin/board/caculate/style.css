@@ -1,0 +1,185 @@
+@charset "utf-8";
+
+.wr_content textarea	{ height: 200px !important; }
+
+.board-notice	{ height: auto !important; background-size: 100% 100% !important; margin: 0 auto !important; }
+
+
+.board-category	{
+	display: block;
+	position: relative;
+	margin-bottom: 10px; 
+	
+}
+.board-category select	{
+
+}
+
+@media all and (max-width: 640px) {
+	.board-category	{
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 10px;
+	}
+	.board-category select	{
+		width: 100%;
+	}
+
+	.bo_fx	{
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 20px 10px !important;
+	}
+	.bo_fx a	{
+		display: block;
+		width: 100%;
+	}
+}
+
+.list-write-area	{
+	position: relative;
+	padding-bottom: 30px;
+}
+.list-write-area .btn-write	{
+	display: block;
+	max-width: 150px;
+	margin: 0 auto 20px;
+	text-align: center;
+	font-size: 14px;
+	border-radius: 9.0em;
+	padding: 0px 10px;
+	line-height: 33px;
+	height: 35px;
+	background: #02121e !important;
+	border: none !important;
+}
+
+
+#write_box	{
+	position: relative;
+	padding: 15px;
+}
+#write_box select,
+#write_box button		{ width: 100%; }
+#write_box textarea		{ height: 100px; }
+
+.board-list	{ padding: 0 10px; }
+
+.calc-item	{
+	position: relative;
+	padding-left: 80px;
+	padding-right: 5px;
+}
+.calc-item .thumb	{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 65px;
+}
+
+
+.calc-item .con-box	{
+	display: block;
+	position: relative;
+	margin: 10px 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+.calc-item .con-box .inner	{
+	position: relative;
+	padding: 10px;
+	height: 100%;
+	box-sizing: border-box;
+	z-index: 1;
+}
+.calc-item .name	{
+	font-weight: 600;
+}
+.calc-item .name i	{
+	display: inline-block;
+	margin-right: 5px;
+	color: #fff;
+	padding: 2px 10px;
+	border-radius: 9.0em;
+}
+.calc-item .name i[data-item="정산완료"]	{ background-color: #417d31; }
+.calc-item .name i[data-item="반려"]		{ background-color: #ab2323; }
+.calc-item .con	{
+	word-break:break-all;
+	padding: 10px 0;
+	margin: 10px 0 0;
+	border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+.calc-item .name span	{
+	display: inline-block;
+	padding-right: 10px;
+	vertical-align: middle;
+}
+.calc-item .name sup	{
+	display: inline-block;
+	vertical-align: middle;
+}
+.calc-item .name sup a	{
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: 400;
+	padding: 1px 10px;
+	color: #fff;
+	border-radius: 9.0em;
+}
+.calc-item .name sup a.btn-mod	{ background: #14526b; }
+.calc-item .name sup a.btn-del	{ background: #611a1a; }
+
+
+.modify-con	{ display: none; }
+
+.comment-box							{ padding: 10px 0; margin-top: 10px; }
+.comment-box .theme-box + .theme-box	{ margin-top: 5px; }
+.comment-box .co-footer	{
+	font-size: 11px;
+	text-align: right;
+	overflow: hidden;
+}
+.comment-box .co-footer .f-box	{
+	display: inline-block;
+	padding: 4px 10px;
+	border-radius: 9.0em;
+	border: 1px solid rgba(255, 255, 255, .2);
+}
+
+.board-list .bo_vc_w									{ position: relative; margin-top: 10px; padding-right: 75px; }
+.board-list .bo_vc_w .input-comment						{ position: relative; margin-bottom: 5px; }
+.board-list .bo_vc_w .input-comment textarea			{ display: block; width: 100%; height: 80px; box-sizing: border-box; margin: 0;}
+
+.board-list .bo_vc_w .btn_confirm						{ display: block; position: absolute; top: 0; right: 0; bottom: 0; width: 70px; }
+.board-list .bo_vc_w .btn_confirm .ui-comment-submit	{ display: block; width: 100%; height: 100%; }
+
+.board-list .modify_area			{ display: none; position: relative; padding-right: 60px; }
+.board-list .modify_area textarea	{ display: block; width: 100%; min-height: 100px; padding: 10px; }
+.board-list .modify_area button	{ display: block; position: absolute; top: 0; right: 0; width: 60px; height: 100%; bottom: 0; }
+
+
+.comment-box		{ border-top: 1px solid rgba(255, 255, 255, .2); }
+.comment-form-box	{ border-top: 1px solid rgba(255, 255, 255, .2); }
+
+.admin-comment						{ position: relative; }
+.admin-comment p					{ position: relative; padding: 4px 10px; }
+.admin-comment p label				{ margin-right: 5px; }
+.admin-comment p.input				{ padding: 0 0 0 210px; }
+.admin-comment p.input input.point	{ position: absolute; top: 0; left: 110px; width: 100px; }
+.admin-comment p.input input		{ width: 100%; }
+.admin-comment p.input select,
+.admin-comment p.input strong		{ position: absolute; top: 0; left: 0; width: 110px; }
+.admin-comment p.input strong		{ display: block; line-height: 30px; padding-left: 15px; }
+
+.admin-comment.event-pannel input	{ width: 100%; }
+
+
+
+.con-box .modify-con			{ padding-bottom: 10px; }
+.con-box .modify-con select		{ width: 100%; }
+.con-box .modify-con textarea	{ height: 150px; }
+.con-box .modify-con button		{ width: 100%; }

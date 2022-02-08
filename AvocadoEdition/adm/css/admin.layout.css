@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+html,
+body	{ height: 100%; }
+#wrap	{
+	display: table;
+	width: 100%;
+	min-height: 100%;
+}
+#header	{
+	display: table-cell;
+	position: relative;
+	width: 200px;
+	min-height: 100%;
+	background: #1d1d1f;
+	vertical-align: top;
+}
+#header:after	{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 1px;
+	background: #171b26;
+	z-index: 0;
+}
+#admin_prof	{
+	display: block;
+	position: relative;
+	width: 200px;
+	height: 100px;
+	padding-bottom: 30px;
+	background: #29c7ca;
+	border-right: 1px solid #0aa0a5;
+	box-sizing: border-box;
+	z-index: 1;
+}
+#admin_prof h1	{
+	position: relative;
+	text-align: center;
+	line-height: 70px;
+	
+}
+#admin_prof h1 img	{
+	position: relative;
+	z-index: 0;
+}
+#admin_prof h1 i	{
+	display: block;
+	position: absolute;
+	bottom: 5px; 
+	right: 10px;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.0em;
+	color: #1e878a;
+	z-index: 1;
+}
+#admin_prof p	{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+	margin: 0;
+	background: #2bacb0;
+}
+
+#admin_prof a:hover	{ color: #fff !important; }
+
+#admin_prof .name	{
+	display: block;
+	position: relative;
+	padding-right: 30px;
+	padding-left: 15px;
+	font-size: 13px;
+	line-height: 30px;
+	color: #d6eff1;
+	text-decoration: none;
+	
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#admin_prof .logout	{
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	text-indent: -999px;
+}
+#admin_prof .logout:before	{
+	content: "\e984";
+	font-family:'icon';
+	color: #d6eff1;
+	font-size: 12px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	line-height: 30px;
+	text-align: center;
+	text-indent: 0;
+}
+
+#page_top	{
+	position: relative;
+	height: 71px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #131a24;
+	background: #1d1d1f;
+}
+#page_top h2	{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	line-height: 70px;
+	padding-left: 40px;
+	font-size: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #c3c8cc;
+	font-weight: 300;
+}
+
+#page_top a	{
+	display: block;
+	position: relative;
+	width: 70px;
+	height: 70px;
+	float: right;
+	border-left: 1px solid #4d515c;
+	overflow: hidden;
+	color: #c3c8cc;
+	text-indent: -999px;
+}
+#page_top a:before	{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-family: 'icon';
+	line-height: 70px;
+	font-size: 25px;
+	text-align: center;
+	text-indent: 0;
+}
+#page_top a:hover	{
+	color: #fff;
+	background: #e7604a;
+	border-color: #a6240d;
+}
+#page_top a.ico-home:before	{ content: "\e900"; }
+#page_top a.ico-dev:before	{ content: "\e995"; }
+
+
+
+#wrapper	{
+	display: table-cell;
+	position: relative;
+	vertical-align: top;
+	min-height: 100%;
+}
+
+
+
+#gnb	{
+	display: block;
+	position: relative;
+	padding-top: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#gnb > ul > li > a	{
+	display: block;
+	padding: 10px 20px;
+	color: #9da4b3;
+	font-size: 15px;
+	text-decoration: none;
+}
+#gnb .gnb_2dli	{ position: relative; }
+#gnb .gnb_2dli > a	{
+	display: block;
+	padding: 10px 20px 10px 25px;
+	color: #acaeb2; 
+	font-size: 13px;
+	
+}
+#gnb .gnb_2dli > a:before	{
+	font-family: 'icon';
+	padding-right: 7px;
+}
+#gnb .gnb_2dli.check:after	{
+	content: "\ea10";
+	font-family: 'icon';
+	display: block;
+	position: absolute; 
+	top: 0;
+	right: 10px;
+	line-height: 39px;
+	color: #e76148;
+}
+
+#gnb .gnb_2dli > a:hover	{
+	color: #fff;
+	background: #484c58;
+	text-decoration: none;
+	font-weight: 100;
+}
+
+#gnb .gnb_2dul	{
+	display: none;
+	background: #262931;
+}
+#gnb .gnb_2dli.check > a:after	{
+	content: "";
+	display: block;
+	position: absolute;
+}
+
+#gnb .gnb_2dli > a:before									{ content: "\e994"; }
+#gnb .gnb_2dli > a[data-text="기본환경설정"]:before			{ content: "\e994"; }
+#gnb .gnb_2dli > a[data-text="팝업레이어관리"]:before		{ content: "\e925"; }
+#gnb .gnb_2dli > a[data-text="세션파일 일괄삭제"]:before	{ content: "\e94d"; }
+#gnb .gnb_2dli > a[data-text="캐시파일 일괄삭제"]:before	{ content: "\e94d"; }
+#gnb .gnb_2dli > a[data-text="썸네일파일 일괄삭제"]:before	{ content: "\e90e"; }
+#gnb .gnb_2dli > a[data-text="커뮤니티 설정"]:before		{ content: "\e96f"; }
+#gnb .gnb_2dli > a[data-text="화면 설정"]:before			{ content: "\e956"; }
+#gnb .gnb_2dli > a[data-text="디자인 설정"]:before			{ content: "\e90c"; }
+#gnb .gnb_2dli > a[data-text="메인슬라이드 관리"]:before	{ content: "\e913"; }
+
+#gnb .gnb_2dli > a[data-text="회원관리"]:before				{ content: "\e923"; }
+#gnb .gnb_2dli > a[data-text="접속자집계"]:before			{ content: "\e99c"; }
+#gnb .gnb_2dli > a[data-text="접속자검색"]:before			{ content: "\e986"; }
+#gnb .gnb_2dli > a[data-text="접속자로그삭제"]:before		{ content: "\e988"; }
+#gnb .gnb_2dli > a[data-text="투표관리"]:before				{ content: "\e926"; }
+
+#gnb .gnb_2dli > a[data-text="게시판관리"]:before			{ content: "\e9ba"; }
+#gnb .gnb_2dli > a[data-text="게시판그룹관리"]:before		{ content: "\e9bc"; }
+#gnb .gnb_2dli > a[data-text="내용관리"]:before				{ content: "\e908"; }
+#gnb .gnb_2dli > a[data-text="이모티콘관리"]:before			{ content: "\e9e1"; }
+
+#gnb .gnb_2dli > a[data-text="프로필 양식 관리"]:before		{ content: "\ea72"; }
+#gnb .gnb_2dli > a[data-text="캐릭터 관리"]:before			{ content: "\e9b2"; }
+#gnb .gnb_2dli > a[data-text="타이틀 관리"]:before			{ content: "\e935"; }
+#gnb .gnb_2dli > a[data-text="보유타이틀 관리"]:before		{ content: "\e936"; }
+#gnb .gnb_2dli > a[data-text="레벨설정 관리"]:before		{ content: "\ea4f"; }
+#gnb .gnb_2dli > a[data-text="경험치 관리"]:before			{ content: "\e993"; }
+#gnb .gnb_2dli > a[data-text="커플 관리"]:before			{ content: "\e9da"; }
+#gnb .gnb_2dli > a[data-text="스탯 관리"]:before			{ content: "\e99d"; }
+
+#gnb .gnb_2dli > a[data-text="상점관리"]:before				{ content: "\e93a"; }
+#gnb .gnb_2dli > a[data-text="아이템관리"]:before			{ content: "\e99f"; }
+#gnb .gnb_2dli > a[data-text="아이템 보유현황"]:before		{ content: "\e9ae"; }
+#gnb .gnb_2dli > a[data-text="아이템 구매기록"]:before		{ content: "\e9ba"; }
+#gnb .gnb_2dli > a[data-text="레시피 관리"]:before			{ content: "\e996"; }
+#gnb .gnb_2dli > a[data-text="소지금관리"]:before				{ content: "\e93f"; }
+
+
+
+#container	{ padding: 25px; }
+#fsearch input	{ margin: 0; }
+#fsearch .btn_submit 	{
+	border: none;
+	background: #29c7c9;
+	color: #fff;
+	font-size: 13px;
+	width: 50px;
+	height: 28px;
+	cursor: pointer;
+	line-height: 1.0em;
+}

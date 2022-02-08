@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 인트로 스타일 정의
+--------------------------------------------------
+	- 최초 작성일 : 2021.08.15
+	- 최초 작성자 : 아보카도
+	- 최종 수정일 : 
+	- 최종 수정자 : 
+--------------------------------------------------*/
+
+
+/*********************************
+	인트로 스타일 정의
+**********************************/
+
+html.close-intro,
+.close-intro body {height:auto;}
+html.close-intro {overflow-y:auto;}
+
+#intro_wrap {position:fixed; top:0; left:0; right:0; bottom:0; text-align:center; z-index:9999; background:#000;}
+
+#intro_wrap .intro-item	{display:block; position:absolute; top:0; left:0; right:0; bottom:0; overflow-y:auto;}

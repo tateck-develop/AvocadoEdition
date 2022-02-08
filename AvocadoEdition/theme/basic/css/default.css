@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 스타일 초기화
+--------------------------------------------------
+	- 최초 작성일 : 2021.08.15
+	- 최초 작성자 : 아보카도
+	- 최종 수정일 : 
+	- 최종 수정자 : 
+--------------------------------------------------*/
+
+/****************************************
+	Import
+****************************************/
+
+@import url(./swiper.css);
+@font-face {
+	font-family: 'icon';
+		src:	url('./fonts/icomoon.eot?y5isk6');
+		src:	url('./fonts/icomoon.eot?y5isk6#iefix') format('embedded-opentype'),
+				url('./fonts/icomoon.ttf?y5isk6') format('truetype'),
+				url('./fonts/icomoon.woff?y5isk6') format('woff'),
+				url('./fonts/icomoon.svg?y5isk6#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.sound_only { display: none; }
+
+
+/****************************************
+	소스코드 초기화
+****************************************/
+
+html {overflow-y:auto}
+body {margin:0;padding:0;}
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
+h1, h2, h3, h4, h5, h6 {}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
+ul, li {margin:0;padding:0;list-style:none}
+legend {display: none;}
+label, input, button, select, img {vertical-align:middle}
+input, button {margin:0;padding:0;}
+button {cursor:pointer}
+textarea, select {font-size:1em}
+select {margin:0}
+p {margin:0;padding:0;word-break:break-all}
+hr {display:none}
+pre {overflow-x:scroll;}
+a:link, a:visited {text-decoration:none}
+a:hover, a:focus, a:active {text-decoration:none}
+
+ul,li { margin: 0; padding: 0; }
+i,sup,em { font-style: normal; }
+
+label { cursor: pointer; }
+
+img { max-width: 100%; vertical-align: middle; }
+table { width: 100%; }
+
+
+/****************************************
+	기본 레이아웃 정의
+****************************************/
+
+.fix-layout {max-width: 1000px; margin: 0 auto; padding: 0 10px; }
+.fix-layout .fix-layout { padding: 0; margin:0; }
+
+#body {min-height:100%; box-sizing:border-box; padding:30px 0;}
+
+
+/****************************************
+	애니메이션 효과 지정 / 초기화
+****************************************/
+
+* {transition: all .3s ease; -webkit-transition: all .3s ease; -ms-transition: all .3s ease;}
+
+.trans,
+.trans *,
+.trans *:after,
+.trans *:before { -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -ms-transition: all 0.3s ease; -o-transition: all 0.3s ease; }
+
+.none-trans,
+.none-trans *,
+.none-trans *:after,
+.none-trans *:before { -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none; }
+
+
+/****************************************
+	텍스트 코드 정렬
+****************************************/
+
+.txt-left { text-align: left; }
+.txt-center { text-align: center; }
+.txt-right { text-align: right; }
+
+
+/****************************************
+	스크롤 스타일 정의
+****************************************/
+
+/* scrollbar : ie except */
+*::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);background-color: rgba(0, 0, 0, 0.2);}
+*::-webkit-scrollbar { width: 5px; height: 5px; background-color: transparent;}
+*::-webkit-scrollbar-thumb { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); background: #fff677; border: none; border-radius: 6.0em; }
+
+
+/**********************
+	폼 스타일
+**********************/
+
+.theme-form { width: 100%; }
+
+
+/**************************************************************
+	Web Size Viewer Control - 반응형 코딩
+	-
+	모바일 기준 :width 1024px
+***************************************************************/
+
+@media all and (min-width:1025px)  {
+	.only-pc {}
+	.only-ta {display:none !important;}
+	.only-mo {display:none !important;}
+
+	.not-pc {display:none !important;}
+	.not-ta {}
+	.not-mo {}
+}
+
+@media all and (max-width:1024px) and (min-width:1025px)  {
+	.only-pc {display:none !important;}
+	.only-ta {}
+	.only-mo {display:none !important;}
+
+	.not-pc {}
+	.not-ta {display:none !important;}
+	.not-mo {}
+}
+@media all and (max-width:1025px)  {
+	.only-pc {display:none !important;}
+	.only-ta {display:none !important;}
+	.only-mo {}
+
+	.not-pc {}
+	.not-ta {}
+	.not-mo {display:none !important;}
+}

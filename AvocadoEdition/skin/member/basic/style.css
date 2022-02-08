@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+#member_page	{
+	position: relative;
+	overflow: hidden;
+	max-width: 800px;
+	margin: 0 auto;
+	padding-bottom: 80px;
+}
+
+#member_page .agree-pannel .theme-box	{
+	height: 300px;
+	overflow: auto;
+}
+
+#member_page .member-title	{
+	font-size: 24px;
+	padding-top: 20px;
+	text-align: center;
+}
+#member_page .member-title *	{ display: block; }
+#member_page .member-title span	{
+	font-size: 15px;
+	font-weight: 600;
+}
+#member_page .member-contents	{ padding-top: 20px; }
+
+#member_page .member-contents h2	{
+	font-size: 16px;
+	line-height: 1.5em;
+	padding-bottom: 10px;
+}
+
+#member_page .member-contents section	{
+	padding-bottom: 30px;
+}
+
+#member_page .member-contents .theme-box	{
+	padding: 15px;
+	line-height: 1.8em;
+}
+
+#member_page .check-agree	{
+	padding-top: 10px;
+	text-align: right;
+}
+#member_page .check-agree input	{ display: none; }
+#member_page .check-agree input + label:before	{
+	content: "\ea53";
+	display: inline-block;
+	vertical-align: middle;
+	font-family: 'icon';
+	margin-right: 5px;
+	font-size: 18px;
+}
+#member_page .check-agree input:checked + label:before	{
+	content: "\ea52";
+}
+
+
+
+.member-form	{
+	width: 100%;
+	margin-bottom: 30px;
+}
+.member-form th	{
+	font-size: 13px;
+	font-weight: 400;
+	text-align: left;
+}
+
+
+
+/*** PASSWORD ***/
+
+#password_box	{
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -150px;
+	width: 300px;
+	height: 200px;
+}
+
+#password_box h1	{display:none;}
+#password_box h1 + .theme-box	{ border-top-width: 0; margin-bottom: 3px; }
+
+#password_box .pass-form	{ 
+	position: relative;
+	padding-right: 80px;
+	margin-top: 10px;
+}
+#password_box .pass-form fieldset				{ display: block; }
+#password_box .pass-form fieldset +	fieldset	{ margin-top: 3px; }
+#password_box .pass-form .box-btn	{
+	display: block;
+	position: absolute;
+	margin: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 70px;
+}
+#password_box .pass-form input[type="password"]	{ width: 100%; }
+#password_box .pass-form .box-btn .ui-btn	{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+#password_box .btn_confirm .ui-btn	{
+	width: 100%;
+}

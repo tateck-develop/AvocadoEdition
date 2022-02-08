@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+
+/** Notice Box **/
+.board-notice	{ width: 264px; padding: 10px; margin: 0 auto; text-align: center; box-sizing: border-box; }
+
+
+
+#page_board_content	{ padding: 0 10px; }
+
+
+
+.qna-box		{ overflow: hidden; }
+
+.ui-option					{ clear: both; padding-bottom: 10px;  font-weight: 800; letter-spacing: 1px; }
+.ui-write-box				{ margin: 0 auto; width: 100%; overflow: hidden; }
+.ui-write-box textarea		{ width: 100%; height: 100px; padding: 10px; box-sizing: border-box; }
+.ui-control					{ padding: 10px 0 0; overflow: hidden; text-align: right; }
+
+.ui-write-area.top			{ margin-bottom: 20px; }
+
+.ui-qna-list					{ position: relative; clear: both;  } 
+.ui-qna-list li					{ position: relative; padding: 15px 0; }
+.ui-qna-list li p				{ clear: both; margin: 0 0 10px; line-height: 1.5em; overflow: hidden; }
+.ui-qna-list li p i				{ position: relative; font-style: normal; padding-right: 10px; margin-right: 5px; }
+.ui-qna-list li p em			{ font-style: normal; margin-right: 20px; }
+.ui-qna-list li p strong a		{ display: inline-block; font-size:9px; font-family: 'Dotum'; padding: 2px 5px; font-weight: normal; }
+.ui-qna-list li p span.date		{ float: right; }
+.ui-qna-list li .qna-content			{ padding: 15px;  line-height: 1.8em; }
+.ui-qna-list li .qna-comment-content	{ padding: 15px; line-height: 1.8em; }
+
+.ui-qna-list li ul				{ margin-left: 80px; padding-top: 15px; }
+
+@media all and (max-width: 460px) { 
+	.ui-qna-list li ul			{ margin-left: 0px; }
+}
+
+.ui-qna-list li ul li					{ padding: 0; }
+.ui-qna-list li ul li p					{ padding-top: 10px; }
+.ui-qna-list li ul li strong			{ float: right; }
+
+.ui-qna-list .ui-qna-list-password label		{ padding-right: 10px; }
+.ui-qna-list .ui-qna-list-password label.blur	{ text-shadow: none; }
+.ui-qna-list .ui-qna-list-password input		{ position: relative; z-index: 1; }
+.ui-qna-list .ui-qna-list-password button		{ 
+	height: 28px; line-height: 28px; padding: 0 25px;
+	font-family: 'Dotum'; margin-left: -5px; border-left-width: 0;
+
+}
+
+@media all and (max-width: 370px) {
+	.ui-qna-list .ui-qna-list-password		{ position: relative; padding-right: 90px; }
+	.ui-qna-list .ui-qna-list-password .ui-submit	{ position: absolute; top: 0; right: 0; width: 90px; }
+	.ui-qna-list .ui-qna-list-password input		{ width: 100%; }
+}
+
+.ui-qna-list li div.ui-write-area					{ padding: 0; margin-left: 80px; background: transparent; background: none; margin-bottom: 10px; border: none; }
+.ui-qna-list li div.ui-write-area button			{ white-space:nowrap; height: 28px; line-height: 28px; padding: 0 25px; margin-top: 10px; }
+.ui-qna-list li div.ui-write-area textarea			{
+	width: 100%;
+	height: 100px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: none;
+	word-break: break-all;
+}
+.ui-qna-list .no-data			{ text-align: center; line-height: 100px; padding-bottom: 50px; }
+
+.search-box			{ clear: both; float: right; margin-bottom: 10px; }
+
+
+@media all and (max-width: 535px) {
+	.ui-control button	{ display: block; clear: both; width: 100%; margin-top: 10px; }
+}
+@media all and (max-width: 435px) {
+	.ui-control input[type="text"],
+	.ui-control input[type="password"]	{ display: block; clear: both; width: 100%; margin-top: 10px; }
+	.ui-qna-list	{ padding: 10px 0; }
+}
+
+@media all and (max-width: 380px) {
+	.ui-qna-list .ui-qna-list-password label	{ display: none; }
+}

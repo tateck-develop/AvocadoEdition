@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 멤버란 > 경험치 보기 스타일 정의
+--------------------------------------------------
+	- 최초 작성일 : 2021.08.15
+	- 최초 작성자 : 아보카도
+	- 최종 수정일 : 
+	- 최종 수정자 : 
+--------------------------------------------------*/
+
+#member_view_point {position:relative; padding:10px;}
+#member_view_point .ui-profile {position:relative; padding-left:100px; min-height:100px;}
+#member_view_point .ui-profile em {display:block; position:absolute; top:0; left:0; width:80px; max-height:100px; overflow:hidden;}
+#member_view_point .name {font-size:16px; font-weight:600; padding-bottom:10px;}

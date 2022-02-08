@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 상점 디자인 스타일 정의
+--------------------------------------------------
+	- 최초 작성일 :2021.08.15
+	- 최초 작성자 :아보카도
+	- 최종 수정일 :
+	- 최종 수정자 :
+--------------------------------------------------*/
+
+#shop_page {position:relative; min-height:500px;}
+
+
+/*********************************
+	NPC 
+**********************************/
+
+#shop_npc {position:absolute; top:0px; bottom:0; left:0px; width:300px; z-index:1;}
+
+
+/******************************************
+	아이템 정보 출력
+*******************************************/
+
+#item_info {display:block; position:absolute; bottom:0px; left:0px; width:300px; box-sizing:border-box; z-index:3;}
+#item_info #item_talk {}
+#item_info #btn_buy {display:block; margin-right:-11px;}
+
+#item_simple_viewer {position:relative;}
+#item_simple_viewer .item-thumb {position:absolute; top:0; left:0; width:50px;}
+#item_simple_viewer .item-name {margin-left:60px; min-height:50px; font-size:16px; padding:5px 0; font-weight:600; box-sizing:border-box;}
+#item_simple_viewer .item-name sup {display:block; margin:0; padding-top:4px; font-size:12px;}
+#item_simple_viewer .item-content {padding:15px 0; font-size:11px;}
+
+
+/*********************************
+	아이템 리스트
+**********************************/
+
+#item_list_box {position:relative; margin-left:350px; box-sizing:border-box; padding:20px 0; z-index:2;}
+#shop_item_list {display:block; position:relative; box-sizing:border-box; z-index:0;}
+#shop_item_list > ul {display:block; position:relative; box-sizing:border-box;}
+#shop_item_list > ul li {display:inline-block; position:relative; text-align:center; margin-bottom:10px; font-size:11px;}
+#shop_item_list li a {display:block; position:relative;}
+#shop_item_list li span {display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+#shop_paging {display:block;}
+#shop_paging .pg_wrap .pg_page {border:none;}
+
+#shop_cate {overflow:hidden; padding-bottom:20px;}
+#shop_cate ul {display:block; overflow:hidden;}
+#shop_cate li {float:left;}
+
+
+/*********************************
+	반응형 처리
+**********************************/
+
+@media all and (max-width:640px)  {
+	#shop_npc {display:none;}
+	#item_info {position:fixed; top:auto; left:0; right:0; bottom:0; width:auto; height:auto; z-index:9;}
+	#body .fix-layout {padding:0;}
+	#shop_page {height:auto; padding:10px;}
+	#item_list_box {margin-left:0;}
+}

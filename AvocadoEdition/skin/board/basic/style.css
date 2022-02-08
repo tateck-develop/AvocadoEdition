@@ -1,0 +1,120 @@
+
+.board-list	{ width: 100%; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, .4); }
+
+.empty_table	{ text-align: center; line-height: 150px; }
+
+#bo_v_con img	{ width: auto !important; }
+
+.board-category	{
+	display: block;
+	position: relative;
+	text-align: right;
+	padding: 0 20px;
+	font-family: 'Nanum Myeongjo';
+}
+.board-category li	{ display: inline-block; color: #fff; font-size: 14px; }
+.board-category li + li:before	{ content: " / "; padding: 0 10px; }
+.board-category li a			{ color: #fff; }
+
+.board-list thead th			{ font-family: 'Nanum Myeongjo'; background: rgba(0, 0, 0, .5); text-align: center; font-size: 13px; padding: 10px; }
+.board-list tbody .td_chk,
+.board-list tbody .td_num,
+.board-list tbody .td_name,
+.board-list tbody .td_hit,
+.board-list tbody .td_date		{ text-align: center; }
+.board-list tbody td			{ padding: 10px; }
+
+.board-list tbody .bo_notice *	{ color: yellow; }
+
+.board-list tbody .bg-1 td		{ background: rgba(255, 255, 255, .1); }
+.board-list a					{ color: #fff; }
+
+.bo_fx	{ text-align: right; padding: 20px 0; }
+
+#bo_sch					{ text-align: center; padding-top: 30px;  }
+#bo_sch button			{ position: relative; width: 30px; height: 30px; background: none; border: none; overflow: hidden; text-indent: -999px; }
+#bo_sch button:before	{ 
+	content: "\e986";
+	font-family: 'icon';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	line-height: 30px;
+	text-align: center;
+	text-indent: 0;
+	color: #fff;
+	font-size: 20px;
+}
+
+@media all and (max-width: 1000px) {
+	.board-list,
+	.board-list thead,
+	.board-list tbody,
+	.board-list tr,
+	.board-list th,
+	.board-list td		{ display: block; position: relative; }
+	.board-list thead	{ display: none; }
+
+	.board-list tbody .bg-1 td		{ background: none; }
+	.board-list tbody .bg-1			{ background: rgba(255, 255, 255, .1); }
+
+	.board-list .td_num	{ display: none; }
+	.board-list .td_name,
+	.board-list .td_date,
+	.board-list .td_hit		{ display: inline-block; padding-top: 0; opacity: .7; }
+	.board-list .td_subject	{ text-align: left; }
+
+}
+
+
+.btn_confirm	{ text-align: center; padding: 30px 0; }
+
+
+
+/* 게시판 댓글 */
+#bo_vc {margin:0 0 20px;padding:20px 0px 10px;}
+#bo_vc h2 {margin-bottom:10px}
+#bo_vc article {padding:0 0 10px;border-top:1px solid rgba(255, 255, 255, .4);}
+#bo_vc header {position:relative;padding:15px 0 5px}
+#bo_vc header .icon_reply {position:absolute;top:15px;left:-20px}
+#bo_vc .sv_wrap {margin-right:15px}
+#bo_vc .member, #bo_vc .guest, #bo_vc .sv_member, #bo_vc .sv_guest {font-weight:bold}
+.bo_vc_hdinfo {display:inline-block;margin:0 15px 0 5px}
+#bo_vc h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
+#bo_vc a {color:#fff;text-decoration:none}
+#bo_vc p {padding:0 0 5px;line-height:1.8em}
+#bo_vc p a {text-decoration:underline}
+#bo_vc p a.s_cmt {text-decoration:none}
+#bo_vc_empty {margin:0;padding:20px !important;text-align:center}
+#bo_vc #bo_vc_winfo {float:left}
+#bo_vc footer {zoom:1}
+#bo_vc footer:after {display:block;visibility:hidden;clear:both;content:""}
+
+.bo_vc_act {float:right;margin:0;list-style:none;zoom:1}
+.bo_vc_act a		{ color: #fff; }
+.bo_vc_act:after {display:block;visibility:hidden;clear:both;content:""}
+.bo_vc_act li {float:left;margin-left:5px}
+
+#bo_vc_w {position:relative;margin:0 0 10px;padding:0 0 20px;border-bottom:1px solid #cfded8}
+#bo_vc_w h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
+#bo_vc_w #char_cnt {display:block;margin:0 0 5px}
+
+#bo_vc_sns {margin:0;padding:0;list-style:none;zoom:1}
+#bo_vc_sns:after {display:block;visibility:hidden;clear:both;content:""}
+#bo_vc_sns li {float:left;margin:0 20px 0 0}
+#bo_vc_sns input {margin:0 0 0 5px}
+
+
+#bo_v		{ padding-top: 20px; }
+#bo_v_title	{ font-size: 16px; text-align: center; margin-bottom: 20px; padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, .5); }
+#bo_v_info	{ text-align: right; }
+#bo_v_info strong	{ display: inline-block; }
+#bo_v_info strong + strong	{ margin-left: 15px; } 
+
+#bo_v_img	{ text-align: center; }
+#bo_v_img img	{ display: block; margin: 0 auto; }
+#bo_v_con	{ margin-top: 30px; }
+#bo_v_atc	{ display: block; margin: 20px 0; padding: 10px; line-height: 1.8em; }

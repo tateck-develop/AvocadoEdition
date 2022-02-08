@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+.login-skin-basic	{ 
+	display: block;
+	position: relative;
+}
+
+.login-skin-basic fieldset	{
+	display: block;
+	position: relative;
+	margin-bottom: 3px;
+	margin-right: 75px;
+}
+.login-skin-basic fieldset input[type="text"],
+.login-skin-basic fieldset input[type="password"]	{ display: block; width: 100%; padding-left: 30px; }
+.login-skin-basic .box-id:before	{ 
+	content: "\e976";
+	font-family: 'icon';
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 10px;
+	line-height: 30px;
+}
+.login-skin-basic .box-pw:before	{ 
+	content: "\e98d";
+	font-family: 'icon';
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 10px;
+	line-height: 30px;
+}
+
+.login-skin-basic fieldset.box-btn	{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 72px;
+	height: 63px;
+	
+	margin-right: 0;
+}
+.login-skin-basic fieldset.box-btn button	{ width: 100%; height: 100%; }
+.login-skin-basic fieldset.box-join			{ margin-right: 0; }
+.login-skin-basic fieldset.box-join .ui-btn	{ width: 100%; }
+
+
+.logined-skin-basic	{
+	position: relative;
+	padding-left: 80px;
+	height: 90px;
+}
+.logined-skin-basic .ui-thumb	{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70px;
+	height: 90px;
+	overflow: hidden;
+}
+.logined-skin-basic .ui-thumb .thumb-box	{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.5);
+}
+.logined-skin-basic .ui-thumb .thumb-box img	{
+	min-width: 100%;
+	height: 100%;
+	max-width: 120%;
+}
+.logined-skin-basic .ui-thumb .ui-btn	{
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 1.2em;
+	padding: 8px;
+}
+.logined-skin-basic .ui-thumb .ui-btn:before	{
+	content: "\e973";
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'icon';
+	font-size: 20px;
+}
+.logined-skin-basic .ui-thumb .ui-btn.etc:before	{
+	content: "\ea4e";
+	padding-top: 30px;
+}
+.logined-skin-basic .info	{ position: relative; height: 100%; }
+.logined-skin-basic .info .name,
+.logined-skin-basic .info .character	{
+	display: block;
+	position: relative;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.logined-skin-basic .info .character + .name {
+	padding-top: 5px;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.logined-skin-basic .info .name .ui-btn	{
+	font-size: 11px;
+	height: 20px;
+	line-height: 18px;
+	padding: 0 8px;
+	margin-left: 5px;
+}
+
+.logined-skin-basic .info .descript	{
+	padding: 5px 0;
+	font-size: 12px;
+}
+
+.logined-skin-basic .control-group	{
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+.logined-skin-basic .control-group li	{
+	display: block;
+	position: relative;
+	width: 33.33%;
+	float: left;
+}
+.logined-skin-basic .control-group .ui-btn	{
+	display: block;
+	width: 100%;
+	letter-spacing: -1px;
+	font-size: 12px;
+	padding: 0 5px;
+}
+.logined-skin-basic .control-group .ui-btn i	{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 18px;
+	color: #fff;
+	background: #8d3333;
+	border-radius: 100%;
+	font-size: 11px;
+
+}
+.logined-skin-basic .control-group li + li .ui-btn	{ border-left-width: 0; }

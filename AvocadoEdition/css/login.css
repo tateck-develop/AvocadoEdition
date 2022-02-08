@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 로그인 화면 스타일 정의
+--------------------------------------------------
+	- 최초 작성일 : 2021.08.15
+	- 최초 작성자 : 아보카도
+	- 최종 수정일 : 
+	- 최종 수정자 : 
+--------------------------------------------------*/
+
+/****************************************************
+	Login Style
+****************************************************/
+
+html,
+body {height:100%;}
+.loginWrap {display:table; width:100%; height:100%;}
+.login-inner {display:table-cell; vertical-align:middle; text-align:center;}
+
+.login-logo {margin-top:-50px;}
+.login-form-box {position:relative; box-sizing:border-box; max-width:280px; margin:0 auto; padding:5px;}
+.login-form-box .inner {display:block; position:relative; padding-right:80px;}
+.login-form-box button {display:block; position:absolute; right:0; top:0; width:75px; bottom:0; height:100%;}
+.login-form-box fieldset + fieldset {margin-top:5px;}
+.login-form-box input {width:100%;}

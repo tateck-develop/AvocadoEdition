@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 멤버란 디자인 스타일 정의
+--------------------------------------------------
+	- 최초 작성일 : 2021.08.15
+	- 최초 작성자 : 아보카도
+	- 최종 수정일 :
+	- 최종 수정자 :
+--------------------------------------------------*/
+
+
+/****************************************************
+	신청자 목록 레이아웃
+****************************************************/
+
+.ready-member-list {display:block; position:relative; overflow:hidden;}
+.ready-member-list li {float:left; width:50%; margin-bottom:8px;}
+.ready-member-list li.empty {width:100%; line-height:300px; text-align:center;}
+.ready-member-list li .item {position:relative; padding:10px; margin:0 5px; }
+.ready-member-list li .ui-thumb {display:block; position:absolute; top:10px; left:10px; width:80px; height:80px; overflow:hidden; box-sizing:border-box;}
+.ready-member-list li .ui-thumb span {display:block; position:absolute; top:0; bottom:0; left:0; right:0; text-align:center; font-size:11px; line-height:96px; opacity:1;}
+.ready-member-list li .ui-thumb span.ing {}
+.ready-member-list li .ui-thumb span.com {display:none;}
+.ready-member-list li .ui-thumb a:hover span {opacity:0;}
+
+.ready-member-list li .ui-profile {display:block; position:relative; margin-left:95px; min-height:85px;}
+.ready-member-list li .ui-profile i {display:block; position:absolute; top:0; left:0; width:18px;}
+.ready-member-list li .ui-profile .name {padding:5px 0;}
+.ready-member-list li .ui-profile em {display:block; font-style:normal; font-size:11px;}
+.ready-member-list li .ui-profile strong {font-size:14px;}
+.ready-member-list li .ui-profile span {display:block; padding:3px 0; font-size:11px;}
+.ready-member-list li .ui-profile span.owner {text-align:right; margin-top:5px; padding-top:5px;}
+
+/* 반응형 */
+@media all and (max-width:1024px) {
+	#submenu li.menu-first {display:block; text-align:center;}
+}
+@media all and (max-width:640px) {
+	.ready-member-list li {width:100%;}
+}
+
+
+/****************************************************
+	멤버 목록 레이아웃
+****************************************************/
+
+.memberWrap {display:table; width:100%;}
+.memberWrap > .member-box {display:table-cell; text-align:center; vertical-align:top;}
+.member-list {text-align:center;}
+.member-list li {display:inline-block; vertical-align:top; margin:5px;}
+.member-list .item {display:block; position:relative; padding:0;}
+.member-list .ui-profile {position:absolute; left:0; right:0; bottom:0; padding:5px; text-align:center;}
+
+@media all and (max-width:800px) {
+	.memberWrap,
+	.memberWrap > .member-box {display:block;}
+}
+
+
+/****************************************************
+	멤버 프로필 레이아웃
+****************************************************/
+
+#character_profile .visual-area {position:relative;}
+#character_profile #character_body {position:relative; z-index:0;}
+#character_profile #character_body img {display:block; margin:0 auto;}
+#character_profile #character_head {position:absolute; left:0; bottom:0; right:0; z-index:1;}
+
+
+/****************************************************
+	인벤토리 스타일
+****************************************************/
+
+.inventory-list {display:block; position:relative; overflow:hidden;}
+.inventory-list li {display:block; float:left; padding:5px;}
+.inventory-list a {display:block; position:relative; width:40px; height:40px; overflow:hidden;}
+.inventory-list a img {display:block; position:relative; margin:0 auto;}
+.inventory-list a i {display:block; position:absolute; right:1px; bottom:1px; background:rgba(0,0,0,.5); min-width:15px; height:15px; line-height:15px; color:#fff; font-size:10px; font-weight:800; padding:0 1px; text-align:center; z-index:2; box-sizing:border-box; border:none !important;}
+.inventory-list a i.present:before {content:"\e99f"; font-family:'icon'; font-weight:400;} 
+
+.title-list {display:block; position:relative; padding:20px 0;}
+.title-list p {padding:5px;}
+.title-list .item {display:inline-block; min-width:25%; padding: 5px; box-sizing:border-box; text-align:left; vertical-align:middle;}
+
+
+/******************************************
+	관계란 스타일
+*******************************************/
+
+.relation-member-list				{ position: relative; }
+.relation-member-list > li			{ position:relative; padding-left: 90px; min-height:120px; margin-bottom: 20px; }
+.relation-member-list .ui-thumb		{ position: absolute; top: 0; left: 0; width: 80px; overflow: hidden; }
+.relation-member-list .rm-name		{ font-size: 14px; font-weight: 800; padding-right: 150px; padding-left: 10px; }
+
+.relation-member-list .rm-like-style				{ position: absolute; right: 0; top: 0;width: 80px; }
+.relation-member-list .rm-like-style i				{ display: block; width: 13px; height: 15px; position: relative; float: left; margin: 0 1px;}
+.relation-member-list .rm-like-style i:before		{ content: "\e9da"; font-family: 'icon'; font-style: normal; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-family: 'icon'; }
+.relation-member-list .memo			{ font-family: 'Dotum'; padding:10px; margin: 5px 0; line-height: 1.2em; min-height: 30px; }
+
+.relation-member-list ol			{ display: block; position: relative; clear: both; text-align: right;padding-right: 10px; }
+.relation-member-list ol li					{ display: inline-block; }
+.relation-member-list ol li a.btn-log		{ display: block; position: relative; width: 20px; height: 20px; margin: 0 auto; }
+.relation-member-list ol li a.btn-log:before	{ content: "\e925"; font-family: 'icon'; font-size: 15px; font-style: normal; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-family: 'icon'; }
+
+.relation-member-list .modify-box						{ display: none; }
+.relation-member-list .state-modify						{ }
+.relation-member-list .state-modify .rm-like-style,
+.relation-member-list .state-modify .memo .ori-content,
+.relation-member-list .state-modify ol					{ display: none; }
+.relation-member-list .state-modify .modify-box			{ display: block; }
+
+
+@media all and (max-width: 500px) {
+	.relation-member-list .rm-name			{ padding-right: 0; font-size: 13px; }
+	.relation-member-list .rm-like-style	{ position: relative; width: auto;overflow: hidden; }
+	
+	.relation-member-list > li		{ padding-left:0px; }
+	.relation-member-list .ui-thumb	{ width: 50px; }
+	.relation-member-list .info		{ min-height: 62px; margin-left: 60px; }
+}

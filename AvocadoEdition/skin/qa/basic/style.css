@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+
+/** Notice Box **/
+.board-notice	{ width: 264px; padding: 10px; margin: 0 auto; text-align: center; box-sizing: border-box; }
+.btn_bo_user	{ padding: 15px 0; }
+/*
+@media all and (max-width: 640px) {
+	
+	.theme-form.write,
+	.theme-form.write tbody,
+	.theme-form.write thead,
+	.theme-form.write tr,
+	.theme-form.write td,
+	.theme-form.write th	{
+		display: block;
+		position: relative;
+		height: auto !important;
+	}
+	
+	.theme-form.write tr	{ 
+		box-sizing: content-box;
+	}
+	.theme-form.write th { 
+		background: none !important;
+		border: none !important;
+		text-align: left;
+		padding: 10px 20px 8px 20px !important;
+	}
+	.theme-form.write td	{
+		padding: 0px 20px 10px 20px !important;
+	}
+}*/

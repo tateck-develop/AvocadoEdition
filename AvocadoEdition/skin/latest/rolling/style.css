@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* SIR 지운아빠 */
+
+.rolling-latest { position: relative; padding-left: 50px; }
+.rolling-latest .title	{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}

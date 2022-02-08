@@ -1,0 +1,256 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 마이페이지 스타일 정의
+--------------------------------------------------
+	- 최초 작성일 : 2021.08.15
+	- 최초 작성자 : 아보카도
+	- 최종 수정일 :
+	- 최종 수정자 :
+--------------------------------------------------*/
+
+/**************************************************************
+	기본 레이아웃
+***************************************************************/
+
+.mypageWrap {padding:20px 0;}
+.mypageInside {position:relative;}
+.my-inner  {max-width:900px; padding:20px; margin:0 auto;}
+
+@media all and (max-width:640px) {
+	.mypageWrap {padding:10px 0px;}
+}
+
+
+/**************************************************************
+	캐릭터 작성 폼
+***************************************************************/
+
+.list-character-box  {display:block; position:relative; margin:10px 0; overflow:hidden;}
+.list-character-box .item  {display:block; position:relative; color:#fff; margin:10px 0; padding:0;}
+.list-character-box .item a  {display:block; position:relative; padding:10px 10px 10px 100px; min-height:100px; box-sizing:border-box;}
+.list-character-box .item a em  {display:block; position:absolute; width:80px; height:80px; top:10px; left:10px; background:no-repeat 50% 50%; background-size:cover;}
+.list-character-box .item strong  {display:block; position:relative; margin-bottom:5px; font-size:18px; line-height:1.5; font-weight:800; font-family:'HeirofLight';}
+.list-character-box .item span  {display:inline-block; font-size:13px; color:#fff;}
+.list-character-box .item span:after  {content:" | "; margin:0 4px; opacity:.5;}
+.list-character-box .item span:last-child:after  {display:none;}
+.list-character-box .item span i  {margin-right:5px;}
+
+
+/**************************************************************
+	탭 설정
+***************************************************************/
+
+#tab_list  {display:block; position:relative; overflow:hidden; box-sizing:border-box; text-align:center; border:none;}
+#tab_list ul  {position:relative; z-index:1;}
+#tab_list li  {font-size:14px; font-weight:600; padding:5px;}
+#tab_list li a  {color:#fff; opacity:.7}
+#tab_list li a.point,
+#tab_list li a:hover  {opacity:1;}
+#tab_list li a.point:before  {content:"《";}
+#tab_list li a.point:after  {content:"》";}
+
+
+/**************************************************************
+	로그 리스트
+***************************************************************/
+
+.mypage-log-list {display:Block; position:relative;}
+.mypage-log-list dl {position:relative; padding-left:100px; min-height:80px; margin:20px 15px; border-bottom:1px solid rgba(255, 255, 255, .2);}
+.mypage-log-list dl dt {position:absolute; top:0; left:0; width:100px; height:80px; overflow:hidden;}
+.mypage-log-list dl dt img {max-width:100%;}
+.mypage-log-list dl dd {margin-left:10px;}
+.mypage-log-list dl .comemnt-list li {overflow:hidden; padding-bottom:3px;}
+.mypage-log-list dl .comemnt-list li + li {padding-top:3px; border-top:1px dashed rgba(255, 255, 255, .2);}
+.mypage-log-list dl .comemnt-list li p {overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.mypage-log-list dl .comemnt-list li p.con {opacity:.8;}
+.mypage-log-list dl .comemnt-list li p .date {font-size:11px; font-family:'Dotum';}
+
+@media all and (max-width:500px)  {
+	.mypage-log-list dl {padding-left:0; font-size:12px;}
+	.mypage-log-list dl dt {position:relative; width:auto; text-align:center;}
+	.mypage-log-list dl dd {padding-top:10px; margin-left:0;}
+
+}
+
+
+/**************************************************************
+	좋아요 추가한 로그 리스트
+***************************************************************/
+
+.mypage-favorite-list {overflow:hidden;}
+.mypage-favorite-list dl {width:20%; float:left; padding:3px; box-sizing:border-box;}
+.mypage-favorite-list dl dt {display:block; position:relative;}
+.mypage-favorite-list dl dt:before {content:""; display:block; position:relative; padding-top:100%;}
+.mypage-favorite-list dl dt a {display:block; position:absolute; top:3px; left:3px; right:3px; bottom:3px; overflow:hidden; text-align:center;}
+.mypage-favorite-list dl dt a img {position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%);}
+.mypage-favorite-list dl dd {margin:0; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+@media all and (max-width:820px)  {.mypage-favorite-list dl {width:25%;}}
+@media all and (max-width:600px)  {.mypage-favorite-list dl {width:33.33%;}}
+@media all and (max-width:450px)  {.mypage-favorite-list dl {width:50%;}}
+
+.mypage-log-list .no-data,
+.mypage-favorite-list .no-data {text-align:center; line-height:150px;}
+
+
+/**************************************************************
+	마이페이지 캐릭터 관리
+***************************************************************/
+
+.profile-viewer  {display:block; position:relative; padding-left:100px;}
+.profile-viewer .theme-box  {padding:0;}
+.profile-viewer .body  {display:block; position:absolute; top:0; left:0; width:100px; bottom:0;}
+.profile-viewer .body em  {display:block; position:absolute; top:0; left:0; right:0; bottom:0; background:no-repeat 50% 0% rgba(0,0,0,.5);}
+.profile-viewer .data  {display:block; position:relative; margin-left:15px; padding-right:15px; padding-bottom:20px;}
+.profile-viewer .data > .control  {text-align:center; margin-bottom:20px; border-bottom:1px solid rgba(255,255,255,.5);}
+.profile-viewer .data > .control a  {display:inline-block; vertical-align:middle; padding:10px 0; color:#fff;}
+.profile-viewer .data > .control a + a  {margin-left:-4px;}
+.profile-viewer .data > .control a + a:before  {content:" · "; margin:0 10px; font-size:15px; vertical-align:middle;}
+.profile-viewer .prof  {display:block; position:relative;}
+
+.profile-viewer .prof .thumb-item  {display:block; position:relative; max-width:100px; margin:0 auto; transform:scale(.9); -webkit-transform:scale(.9); text-align:center;}
+.profile-viewer .prof .thumb-item a  {display:block; background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.3);}
+.profile-viewer .prof .thumb-item em  {display:block;}
+.profile-viewer .prof .thumb-item em img  {display:block;}
+.profile-viewer .prof .thumb-item .name  {display:block; padding:3px 10px; background:#000; color:#fff;}
+
+.profile-viewer .prof-data  {text-align:center; padding:10px 0 30px;;}
+.profile-viewer .prof-data p  {padding-left:0;}
+.profile-viewer .prof-data p:before  {display:none;}
+.profile-viewer .prof-data p strong  {display:block; position:relative; font-size:16px;}
+.profile-viewer .prof-data p + p  {margin-top:5px; opacity:.7;}
+
+.profile-viewer .comment  {padding:20px 0; text-align:center; font-size:18px; font-family:'HeirofLight';}
+.profile-viewer .comment:before,
+.profile-viewer .comment:after  {content:'"';}
+.profile-viewer .status-bar dd p  {padding-left:0;}
+.profile-viewer .status-bar dd p:before  {display:none;}
+.profile-viewer .mypage-box  {padding:10px 0;}
+.profile-viewer .no-data  {text-align:center; opacity:.5; padding:50px 0;}
+
+@media all and (max-width:520px)  {
+	.profile-viewer  {padding-left:0;}
+	.profile-viewer .body  {display:none;}
+	.profile-viewer .tab-box-group  {margin:0 -15px;}
+}
+
+
+/** Quick Navigation **/
+#character_profile {position:relative; padding:20px 0 100px;}
+#character_profile #profile_menu {display:block; position:absolute; top:20px; right:10px; z-index:10;}
+#character_profile #profile_menu a {display:block; position:relative; margin-bottom:5px;}
+
+.relation-member-list {margin-top:30px;}
+.relation-box .ui-btn {margin-top:10px;}
+
+.pattern-box .inner-wrap {}
+.pattern-box .inner-wrap h4 {line-height:1.2; font-size:16px; margin-bottom:10px; border-left:4px solid #fff; padding-left:.5em;}
+
+@media all and (max-width:520px)  {
+	.tbl-scroll  {overflow:auto;}
+	.tbl-scroll > table  {width:620px;}
+}
+
+.inventory-list {display:block; position:relative; overflow:hidden;}
+.inventory-list li {display:block; float:left; padding:5px;}
+.inventory-list a {display:block; position:relative; width:40px; height:40px; overflow:hidden;}
+.inventory-list a img {display:block; position:relative; margin:0 auto;}
+.inventory-list a i {display:block; position:absolute; right:1px; bottom:1px; background:rgba(0,0,0,.5); min-width:15px; height:15px; line-height:15px; color:#fff; font-size:10px; font-weight:800; padding:0 1px; text-align:center; z-index:2; box-sizing:border-box; border:none !important;}
+.inventory-list a i.present:before {content:"\e99f"; font-family:'icon'; font-weight:400;} 
+
+.title-list {display:block; position:relative; padding:20px 0;}
+.title-list p {padding:5px;}
+.title-list .item {display:inline-block; min-width:25%; padding: 5px; box-sizing:border-box; text-align:left; vertical-align:middle;}
+
+
+/********************************
+	쪽지란
+********************************/
+
+.memo-inner  {padding:30px 10px; max-width:640px; margin:0 auto; min-height:300px; overflow:hidden;}
+.ui-list-control  {text-align:right; padding-bottom:20px;}
+
+.message-item  {display:block; position:relative; max-width:90%; width:570px; box-sizing:border-box; clear:both; margin-top:10px;}
+.message-item.index  {max-width:100%; width:100%;}
+.message-item .thumb  {display:block; position:absolute; top:0; width:80px; text-align:center;}
+.message-item .thumb em  {display:block; position:relative; padding-top:100%; background:no-repeat 50% 50%; background-size:cover; border:2px solid #656567;}
+.message-item .thumb strong  {display:block; padding-top:5px; font-size:13px; word-break:break-all;}
+.message-item .con {display:block; position:relative; min-height:70px; padding:15px; box-sizing:border-box;}
+.message-item .con:after  {content:""; display:block; position:absolute; width:0; height:0; border:20px solid transparent; border-top-width:10px; border-bottom-width:0; top:0;}
+.message-item .con .txt  {font-size:14px;}
+.message-item .con .txt a  {display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; word-wrap:break-word; clear:both; overflow:hidden; height:2.8em; text-overflow:ellipsis; color:#fff;}
+.message-item .con .control  {display:block; margin-top:10px; font-size:12px; opacity:.7;}
+.message-item .con .control .ui-btn  {height:auto; line-height:1.2; padding:0 10px; border-radius:9em;}
+
+.message-item.you  {padding-left:105px; float:left;}
+.message-item.you .thumb  {left:0;}
+.message-item.you .con  {background:rgba(103,103,103,.8); border-radius:0 10px 10px 10px;}
+.message-item.you .con:after  {border-top-color:rgba(103,103,103,.8); border-top-width:10px; border-right-width:0; left:-20px;}
+.message-item.you .con .control  {text-align:right;}
+
+.message-item.me  {padding-right:105px; float:right; margin-top:20px;}
+.message-item.me .thumb  {right:0;}
+.message-item.me .con  {background:rgba(62,62,62,.8); border-radius:10px 0 10px 10px;}
+.message-item.me .con:after  {border-top-color:rgba(62,62,62,.8); border-left-width:0; right:-20px;}
+.message-item.me .con .control  {text-align:left;}
+
+.ui-chatting-list:after  {content:""; display:block; clear:both; min-height:200px;}
+.ui-memo-write  {border-top:1px solid rgba(255,255,255,.2); padding-top:20px;}
+
+@media all and (max-width:640px)  {
+	.message-item .thumb  {width:60px;}
+	.message-item .con  {min-height:50px; padding:10px;}
+	.message-item .con:after  {border-left-width:10px; border-right-width:10px;}
+	.message-item .con .txt  {font-size:12px;}
+
+	.message-item.you  {padding-left:75px;}
+	.message-item.you .con:after  {left:-10px;}
+
+	.message-item.me  {padding-right:75px;}
+	.message-item.me .con:after  {right:-10px;}
+}
+@media all and (max-width:420px)  {
+	.message-item  {max-width:100%;}
+
+	.message-item.you  {padding-left:75px;}
+	.message-item.me  {padding-right:75px;}
+}
+
+
+/******************************************
+	관계란 스타일
+*******************************************/
+
+.relation-member-list				{ position: relative; }
+.relation-member-list > li			{ position:relative; padding-left: 90px; min-height:120px; margin-bottom: 20px; }
+.relation-member-list .ui-thumb		{ position: absolute; top: 0; left: 0; width: 80px; overflow: hidden; }
+.relation-member-list .rm-name		{ font-size: 14px; font-weight: 800; padding-right: 150px; padding-left: 10px; }
+
+.relation-member-list .rm-like-style				{ position: absolute; right: 0; top: 0;width: 80px; }
+.relation-member-list .rm-like-style i				{ display: block; width: 13px; height: 15px; position: relative; float: left; margin: 0 1px;}
+.relation-member-list .rm-like-style i:before		{ content: "\e9da"; font-family: 'icon'; font-style: normal; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-family: 'icon'; }
+.relation-member-list .memo			{ font-family: 'Dotum'; padding:10px; margin: 5px 0; line-height: 1.2em; min-height: 30px; }
+
+.relation-member-list ol			{ display: block; position: relative; clear: both; text-align: right;padding-right: 10px; }
+.relation-member-list ol li					{ display: inline-block; }
+.relation-member-list ol li a.btn-log		{ display: block; position: relative; width: 20px; height: 20px; margin: 0 auto; }
+.relation-member-list ol li a.btn-log:before	{ content: "\e925"; font-family: 'icon'; font-size: 15px; font-style: normal; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-family: 'icon'; }
+
+
+
+.relation-member-list .modify-box						{ display: none; }
+.relation-member-list .state-modify						{ }
+.relation-member-list .state-modify .rm-like-style,
+.relation-member-list .state-modify .memo .ori-content,
+.relation-member-list .state-modify ol					{ display: none; }
+.relation-member-list .state-modify .modify-box			{ display: block; }
+
+
+@media all and (max-width: 500px) {
+	.relation-member-list .rm-name			{ padding-right: 0; font-size: 13px; }
+	.relation-member-list .rm-like-style	{ position: relative; width: auto;overflow: hidden; }
+	
+	.relation-member-list > li		{ padding-left:0px; }
+	.relation-member-list .ui-thumb	{ width: 50px; }
+	.relation-member-list .info		{ min-height: 62px; margin-left: 60px; }
+}

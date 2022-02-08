@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* -----------------------------------------------
+	* 메인 화면 스타일 정의
+--------------------------------------------------
+	- 최초 작성일 : 2021.08.15
+	- 최초 작성자 : 아보카도
+	- 최종 수정일 :
+	- 최종 수정자 :
+--------------------------------------------------*/
+
+/****************************************************
+	메인 레이아웃
+****************************************************/
+
+#body {opacity:0;}
+#no_design_main {position:relative; padding:50px 0; }
+#no_design_main:after {content:""; display:block; position:relative; clear:both;}
+
+
+/****************************************************
+	메인 슬라이드 배너
+****************************************************/
+
+#main_visual_box {min-height:100px; background:#000; margin-bottom:20px;}
+
+
+/****************************************************
+	메인 트위터 박스
+****************************************************/
+
+#main_twitter_box {position:relative; width:32%; height:260px; float:left; margin-bottom:20px;}
+.twitter {max-height:100%;}
+
+
+/****************************************************
+	메인 이미지 박스
+****************************************************/
+
+#main_image_box {position:relative; width:32%; margin-left:2%; margin-right:2%; height:260px; text-align:center; line-height:260px; float:left; margin-bottom:20px;}
+
+
+/****************************************************
+	메인 우측 박스 (로그인 / 일반)
+****************************************************/
+
+#main_side_box {position:relative; width:32%; height:260px; float:right; margin-bottom:20px;}
+#main_login_box {margin-bottom:20px;}
+#main_banner_box {padding:20px; height:130px; text-align:center; box-sizing:border-box;}
+
+
+/****************************************************
+	메인 카피라이터
+****************************************************/
+
+#main_copyright_box {display:block; position:relative; clear:both; text-align:center;}
+
+
+/****************************************************
+	반응형 스타일
+****************************************************/
+
+@media all and (max-width:1024px)  {
+	#no_design_main {padding-top:20px;}
+}
+@media all and (max-width:800px)  {
+	#main_twitter_box,
+	#main_image_box,
+	#main_side_box  {width:auto; float:none; margin:0 0px 20px;}
+}
