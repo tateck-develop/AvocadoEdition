@@ -35,7 +35,7 @@ if(!sql_query(" DESC {$g5['random_dice_log_table']} ")) {
 	  `wr_id` int(11) NOT NULL DEFAULT '0',
 	  `mb_id` varchar(11) NOT NULL DEFAULT '',
 	  `ch_id` int(11) NOT NULL DEFAULT '0',
-	  `rl_text` TEXT NOT NULL DEFAULT,
+	  `rl_text` TEXT NOT NULL,
 	  `rl_img` varchar(11) NOT NULL DEFAULT '',
 	  `rl_date` varchar(11) NOT NULL DEFAULT '',
 	  PRIMARY KEY (`rl_id`)
