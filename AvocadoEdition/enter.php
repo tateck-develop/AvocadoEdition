@@ -41,7 +41,7 @@
 	<link media="all" type="text/css" rel="stylesheet" href="<?=G5_CSS_URL?>/enter.css">
 	<?
 		if(!$config['cf_7']) { 
-			echo '<link rel="stylesheet" href="'.G5_CSS_URL.'/_design.config.css" type="text/css" />';
+			echo '<link rel="stylesheet" href="'.G5_DATA_URL.'/css/_design.config.css" type="text/css" />';
 		}
 	?>
 
