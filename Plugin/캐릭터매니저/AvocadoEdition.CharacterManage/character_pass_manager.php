@@ -11,8 +11,8 @@ sql_query(" ALTER TABLE `{$g5['character_table']}` ADD `ch_pass_state` varchar(2
 }
 
 /** 세력 정보 **/
+$ch_si = array();
 if($config['cf_side_title']) {
-	$ch_si = array();
 	$side_result = sql_query("select si_id, si_name from {$g5['side_table']} where si_auth <= '{$member['mb_level']}' order by si_id asc");
 	for($i=0; $row = sql_fetch_array($side_result); $i++) { 
 		$ch_si[$i]['name'] = $row['si_name'];
@@ -21,8 +21,8 @@ if($config['cf_side_title']) {
 }
 
 /** 종족 정보 **/
+$ch_cl = array();
 if($config['cf_class_title']) {
-	$ch_cl = array();
 	$class_result = sql_query("select cl_id, cl_name from {$g5['class_table']} where cl_auth <= '{$member['mb_level']}' order by cl_id asc");
 	for($i=0; $row = sql_fetch_array($class_result); $i++) { 
 		$ch_cl[$i]['name'] = $row['cl_name'];
