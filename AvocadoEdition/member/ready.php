@@ -62,11 +62,11 @@ if(!$search_arcode) {
 	}
 
 	if($stx) { 
-		if($sfl == 'mb_nick') {
+		if($sfl == 'mb_name') {
 			$temp_search = "";
 			$connect_str = "";
 
-			$temp = sql_query("select mb_id from {$g5['member_table']} where mb_nick like '%".$stx."%'");
+			$temp = sql_query("select mb_id from {$g5['member_table']} where mb_name like '%".$stx."%'");
 			for($t = 0; $row = sql_fetch_array($temp); $t++) { 
 				$temp_search .= $connect_str."mb_id = '".$row['mb_id']."'";
 				$connect_str = " OR ";
