@@ -6,8 +6,6 @@ if( !isset($g5['content_table']) ){
     die('<meta charset="utf-8">관리자 모드에서 게시판관리->내용 관리를 먼저 확인해 주세요.');
 }
 
-
-
 // 내용
 $sql = " select * from {$g5['content_table']} where co_id = '$co_id' ";
 $co = sql_fetch($sql);
@@ -22,7 +20,7 @@ if (is_include_path_check($co['co_include_head']))
 else
     include_once('./_head.php');
 
-if (G5_IS_MOBILE) {
+if (G5_IS_MOBILE && $co['co_mobile_content'] != "") {
 	$str = conv_content($co['co_mobile_content'], $co['co_html'], $co['co_tag_filter_use']);
 } else {
 	$str = conv_content($co['co_content'], $co['co_html'], $co['co_tag_filter_use']);
