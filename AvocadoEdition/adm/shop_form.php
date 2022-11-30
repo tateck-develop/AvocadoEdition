@@ -223,8 +223,8 @@ if($config['cf_class_title']) {
 					<td>
 						<input type="hidden" name="sh_has_item" id="sh_has_item" value="<?=$shop['sh_has_item']?>" />
 						<input type="text" name="sh_has_item_name" value="<?=get_item_name($shop['sh_has_item'])?>" id="sh_has_item_name" onkeyup="get_ajax_item(this, 'has_item_list', 'sh_has_item');" />
+						<input type="text" name="sh_has_item_count" value="<?=$shop['sh_has_item_count']?>" size="5"/> 개
 						<div id="has_item_list" class="ajax-list-box"><div class="list"></div></div>
-
 					</td></tr><tr>
 					<td class="bo-right">소모여부</td>
 					<td>

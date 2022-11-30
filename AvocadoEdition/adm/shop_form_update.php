@@ -76,6 +76,7 @@ $sql_common = "
 	sh_use_rank			= '{$sh_use_rank}',
 	sh_has_item			= '{$sh_has_item}',
 	sh_use_has_item		= '{$sh_use_has_item}',
+	sh_has_item_count	= '{$sh_has_item_count}',
 	sh_has_title		= '{$sh_has_title}',
 	sh_use_has_title	= '{$sh_use_has_title}',
 	sh_use				= '{$sh_use}',

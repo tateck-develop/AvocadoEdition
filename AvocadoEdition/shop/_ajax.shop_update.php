@@ -50,15 +50,18 @@ if($character['ch_id'] && $character['ch_state'] == '승인') {
 
 		if($item['sh_has_item']) {
 			// 구매 아이템 존재 시
-			$in = sql_fetch("select in_id from {$g5['inventory_table']} where ch_id = '{$character['ch_id']}' and it_id = '{$item['sh_has_item']}'");
-			if(!$in['in_id']) {
+			$item['sh_has_item_count'] = $item['sh_has_item_count'] == 0 ? 1 : $item['sh_has_item_count'];
+			$in = sql_fetch("select count(in_id) as cnt, in_id from {$g5['inventory_table']} where ch_id = '{$character['ch_id']}' and it_id = '{$item['sh_has_item']}'");
+
+			if($in['cnt'] < $item['sh_has_item_count']) {
 				// 필요 아이템 미소유
 				$has_item_name = get_item_name($item['sh_has_item']);
-				$msg .= $has_item_name.j($has_item_name, '이')." 있어야 살 수 있습니다.<br />";
+				$msg .= $has_item_name.j($has_item_name, '이')." ".$item['sh_has_item_count']."개 있어야 살 수 있습니다.<br />";
 				$is_able_buy = false;
 			} else if($item['sh_use_has_item']) {
 				// 아이템 소모
-				$use_inventory_item = $in['in_id'];
+				$use_inventory_item = $item['sh_has_item'];
+				$use_inventory_item_count = $item['sh_has_item_count'];
 			}
 		}
 
@@ -146,10 +149,16 @@ if($character['ch_id'] && $character['ch_state'] == '승인') {
 				$ex_point = $use_exp_point * -1;
 				insert_exp($character['ch_id'], $ex_point, $ex_content, $action);
 			}
+
 			if($use_inventory_item) {
 				// 아이템 제거
-				sql_query("delete from {$g5['inventory_table']} where in_id = '{$use_inventory_item}'");
+				$item_result = sql_query("select in_id from {$g5['inventory_table']} where ch_id = '{$character['ch_id']}' and it_id = '{$use_inventory_item}' order by se_ch_name asc, in_id asc limit 0, {$use_inventory_item_count}");
+				for($k = 0; $in = sql_fetch_array($item_result); $k++) { 
+					// 인벤에서 제거
+					delete_inventory($in['in_id'], 0);
+				}
 			}
+
 			if($use_has_title) {
 				// 타이틀 제거
 				sql_query("delete from {$g5['title_has_table']} where hi_id = '{$use_has_title}'");

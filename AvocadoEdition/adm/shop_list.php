@@ -47,7 +47,14 @@ $listall = '<a href="'.$_SERVER['PHP_SELF'].'" class="ov_listall">전체목록</
 $g5['title'] = '상점 관리';
 include_once('./admin.head.php');
 
-$colspan = 13;
+/*******************************
+	구매 아이템 갯수 설정
+*******************************/
+if(!sql_query(" SELECT sh_has_item_count from {$g5['shop_table']} limit 1 ", false)) {
+	sql_query(" ALTER TABLE {$g5['shop_table']} ADD `sh_has_item_count` int(11) NOT NULL DEFAULT '0' AFTER `sh_has_item`");
+}
+
+$colspan = 19;
 ?>
 
 <div class="local_ov01 local_ov">
@@ -98,51 +105,41 @@ $colspan = 13;
 <div class="tbl_head01 tbl_wrap">
 	<table>
 		<caption><?php echo $g5['title']; ?> 목록</caption>
-		<colgroup>
-			<col style="width:  40px;" />
-			<col />
-		</colgroup>
 		<thead>
 			<tr>
-				<th scope="col" rowspan="2" class="bo-right">
-					<label for="chkall" class="sound_only">진열정보 전체</label>
+				<th scope="col" class="bo-right">
 					<input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
 				</th>
-				<th scope="col" rowspan="2">분류</th>
-				<th scope="col" rowspan="2">아이템</th>
-				<th scope="col" rowspan="2">진열기간</th>
-
-				<th scope="col" class="bo-left bo-no-bottom">구매금액</th>
-				<th scope="col" class="bo-left bo-no-bottom">구매경험치</th>
-				<th scope="col" class="bo-left bo-no-bottom">교환아이템</th>
-				<th scope="col" class="bo-left bo-no-bottom">교환타이틀</th>
-				<th scope="col" class="bo-left bo-no-bottom">구매갯수</th>
-				<th scope="col" rowspan="2" class="bo-left">순서</th>
-				<th scope="col" rowspan="2" class="bo-left">관리</th>
+				<th scope="col">분류</th>
+				<th scope="col" colspan="2">아이템</th>
+				<th scope="col">진열기간</th>
+				<th scope="col" colspan="2">구매금액</th>
+				<th scope="col" colspan="2">구매<?=$config['cf_exp_name']?></th>
+				<th scope="col" colspan="4">교환아이템</th>
+				<th scope="col" colspan="2">교환타이틀</th>
+				<th scope="col">구매갯수</th>
+				<th scope="col">재고갯수</th>
+				<th scope="col">순서</th>
+				<th scope="col">관리</th>
 			</tr>
-			<tr>
-				<th scope="col" class="bo-left">소모성</th>
-				<th scope="col" class="bo-left">소모성</th>
-				<th scope="col" class="bo-left">소모성</th>
-				<th scope="col" class="bo-left">소모성</th>
-				<th scope="col" class="bo-left">재고갯수</th>
-			</tr>
+			
 		</thead>
 		<tbody>
 			<?php
 			for ($i=0; $shop=sql_fetch_array($result); $i++) {
 				$one_update = '<a href="./shop_form.php?w=u&amp;sh_id='.$shop['sh_id'].'&amp;'.$qstr.'">수정</a>';
 				$bg = 'bg'.($i%2);
+
+				$is_order_limit = false;
 			?>
 
 			<tr class="<?php echo $bg; ?>">
-				<td rowspan="2" class="txt-center">
+				<td style="width:30px; padding:0;" class="txt-center">
 					<input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
 					<input type="hidden" name="sh_id[<?php echo $i ?>]" value="<?php echo $shop['sh_id'] ?>" />
 				</td>
-
-				<td rowspan="2">
-					<select name="ca_name[<?php echo $i ?>]">
+				<td style="width:100px;">
+					<select name="ca_name[<?php echo $i ?>]" style="width:100%;">
 						<option value="">카테고리</option>
 						<? for($k =0; $k < count($category); $k++) { 
 							if(!$category[$k]) continue;
@@ -151,86 +148,98 @@ $colspan = 13;
 						<? } ?>
 					</select>
 				</td>
-				<td rowspan="2" class="txt-left">
+				<td style="width:27px; padding:0; border-right-width:0;">
 					<? if($shop['it_id']) { ?>
-					<img src="<?=get_item_img($shop['it_id'])?>" style="max-width: 20px;"/>
-					<?=get_item_name($shop['it_id'])?>
+						<img src="<?=get_item_img($shop['it_id'])?>" style="max-width:20px; max-height:20px;"/>
 					<? } ?>
 				</td>
-
-				<td rowspan="2" class="txt-left">
-				<? if($shop['sh_date_s']) { ?>
-					<p><?=date('Y-m-d', strtotime($shop['sh_date_s']))?> ~ <?=date('Y-m-d', strtotime($shop['sh_date_e']))?></p> 
-				<? } ?>
-				<? if($shop['sh_time_s']) { ?>
-					<p><?=$shop['sh_time_s']?>시 ~ <?=$shop['sh_time_e']?>시</p>
-				<? } ?>
-				<? if($shop['sh_week']) { 
-					echo "<p>";
-					$str_week = explode("||", $shop['sh_week']);
-					$add_str = "";
-					for($k=0; $k < count($str_week); $k++) { 
-						if($str_week[$k] == '') continue;
-				?>
-					<?=$add_str.$yoil[$str_week[$k]]?>
-				<? 
-					$add_str = ", ";
-				} echo "</p>"; } ?>
-				</td>
-
-				<td>
-					<input type="text" name="sh_money[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_money']) ?>" size="3">
-				</td>
-
-				<td>
-					<input type="text" name="sh_exp[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_exp']) ?>" size="3">
+				<td style="text-align:left; padding-left:0;">
+					<? if($shop['it_id']) { echo get_item_name($shop['it_id']); } ?>
 				</td>
 
 				<td class="txt-left">
+					<? if($shop['sh_date_s']) { $is_order_limit = true; ?>
+						<p><?=date('Y-m-d', strtotime($shop['sh_date_s']))?> ~ <?=date('Y-m-d', strtotime($shop['sh_date_e']))?></p> 
+					<? } ?>
+					<? if($shop['sh_time_s']) { $is_order_limit = true; ?>
+						<p><?=$shop['sh_time_s']?>시 ~ <?=$shop['sh_time_e']?>시</p>
+					<? } ?>
+					<? if($shop['sh_week']) { $is_order_limit = true; 
+						echo "<p>";
+						$str_week = explode("||", $shop['sh_week']);
+						$add_str = "";
+						for($k=0; $k < count($str_week); $k++) { 
+							if($str_week[$k] == '') continue;
+					?>
+						<?=$add_str.$yoil[$str_week[$k]]?>
+					<? 
+						$add_str = ", ";
+					} echo "</p>"; } 
+					
+					if(!$is_order_limit) { echo "<span style='opacity:.5;'>상시판매</span>"; }
+					?>
+				</td>
+
+				<td style="width:30px; padding:0; border-right-width:0;">
+					<input type="checkbox" name="sh_use_money[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_money']?"checked":"" ?>>
+				</td>
+				<td style="width:80px; padding-left:0;">
+					<input type="text" name="sh_money[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_money']) ?>" style="width:100%;">
+				</td>
+
+				<td style="width:30px; padding:0; border-right-width:0;">
+					<input type="checkbox" name="sh_use_exp[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_exp']?"checked":"" ?>>
+				</td>
+				<td style="width:80px; padding-left:0;">
+					<input type="text" name="sh_exp[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_exp']) ?>" style="width:100%;">
+				</td>
+
+
+				<td style="width:30px; padding:0; border-right-width:0;">
+					<input type="checkbox" name="sh_use_has_item[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_has_item']?"checked":"" ?>>
+				</td>
+				<td style="width:27px; padding:0; border-right-width:0;">
 					<? if($shop['sh_has_item']) { ?>
-					<img src="<?=get_item_img($shop['sh_has_item'])?>" style="max-width: 20px;"/>
-					<?=get_item_name($shop['sh_has_item'])?>
-					<? } else { ?>
-					-
+						<img src="<?=get_item_img($shop['sh_has_item'])?>" style="max-width:20px; max-height:20px;"/>
 					<? } ?>
 				</td>
+				<td style="text-align:left; padding-left:0; padding-right:0; border-right-width:0;">
+					<? if($shop['sh_has_item']) { echo get_item_name($shop['sh_has_item']); } else { echo "-"; } ?>
+				</td>
+				<td style="width:60px;">
+					<input type="text" name="sh_has_item_count[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_has_item_count']) ?>" style="width:70%;">개
+				</td>
 
-				<td>
+
+
+
+
+				<td style="width:30px; padding:0; border-right-width:0;">
+					<input type="checkbox" name="sh_use_has_title[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_has_title']?"checked":"" ?>>
+				</td>
+				<td style="text-align:left; padding-left:0;">
 					<? if($shop['sh_has_title']) { ?>
-					<?=get_title_image($shop['sh_has_title'])?>
+						<?=get_title_image($shop['sh_has_title'])?>
 					<? } else { ?>
 					-
 					<? } ?>
 				</td>
 
-				<td>
-					<input type="text" name="sh_limit[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_limit']) ?>" size="5">
+				<td style="width:50px;">
+					<input type="text" name="sh_limit[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_limit']) ?>" style="width:100%;">
 				</td>
-				<td rowspan="2">
-					<input type="text" name="sh_order[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_order']) ?>" size="5">
+				<td style="width:50px;">
+					<input type="text" name="sh_qty[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_qty']) ?>" style="width:100%;">
 				</td>
-				<td rowspan="2" class="td_mngsmall">
+				<td style="width:50px;">
+					<input type="text" name="sh_order[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_order']) ?>" style="width:100%;">
+				</td>
+				<td style="width:50px;" class="td_mngsmall">
 					<?php echo $one_update ?>
 					<?php echo $one_copy ?>
 				</td>
 			</tr>
-			<tr class="<?php echo $bg; ?>">
-				<td class="bo-no-left">
-					<input type="checkbox" name="sh_use_money[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_money']?"checked":"" ?>>
-				</td>
-				<td>
-					<input type="checkbox" name="sh_use_exp[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_exp']?"checked":"" ?>>
-				</td>
-				<td>
-					<input type="checkbox" name="sh_use_has_item[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_has_item']?"checked":"" ?>>
-				</td>
-				<td>
-					<input type="checkbox" name="sh_use_has_title[<?php echo $i ?>]" value="1" <?php echo $shop['sh_use_has_title']?"checked":"" ?>>
-				</td>
-				<td>
-					<input type="text" name="sh_qty[<?php echo $i ?>]" value="<?php echo get_text($shop['sh_qty']) ?>" size="5">
-				</td>
-			</tr>
+			
 			<?php
 			}
 			if ($i == 0)

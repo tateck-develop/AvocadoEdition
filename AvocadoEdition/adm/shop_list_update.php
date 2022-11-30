@@ -29,6 +29,7 @@ if ($_POST['act_button'] == "선택수정") {
 						sh_use_exp		= '{$_POST['sh_use_exp'][$k]}',
 						sh_use_has_title	= '{$_POST['sh_use_has_title'][$k]}',
 						sh_use_has_item		= '{$_POST['sh_use_has_item'][$k]}',
+						sh_has_item_count	= '{$_POST['sh_has_item_count'][$k]}',
 						sh_order			= '{$_POST['sh_order'][$k]}'
 				  where sh_id			= '{$_POST['sh_id'][$k]}' ";
 		sql_query($sql);
