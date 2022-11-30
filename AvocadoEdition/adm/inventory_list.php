@@ -117,6 +117,7 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm">
 						<td>
 							<input type="hidden" name="it_id" id="it_id" value="" />
 							<input type="text" name="it_name" value="" id="it_name" onkeyup="get_ajax_item(this, 'item_list', 'it_id');" />
+							<input type="text" name="item_count" value="" style="width:50px;"/>개
 							<div id="item_list" class="ajax-list-box"><div class="list"></div></div>
 						</td>
 					</tr>

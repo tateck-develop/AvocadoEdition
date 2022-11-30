@@ -7,12 +7,19 @@ auth_check($auth[$sub_menu], 'w');
 check_token();
 
 if(!$it_id && $it_name) {
-	$it = sql_fetch("select it_id from {$g5['item_table']} where it_name = '{$it_name}'");
-	if($it['it_id'] == 0) {
+	$it = sql_fetch("select * from {$g5['item_table']} where it_name = '{$it_name}'");
+	if(!$it['it_id']) {
 		alert("해당 아이템의 정보가 없습니다.");
 	}
 	$it_id = $it['it_id'];
+} else {
+	$it = sql_fetch("select * from {$g5['item_table']} where it_id = '{$it_id}'");
+	if(!$it['it_id']) {
+		alert("해당 아이템의 정보가 없습니다.");
+	}
 }
+
+$item_count = $item_count ? $item_count : 1;
 
 if($take_type == 'A') {
 	// 전체지급
@@ -22,12 +29,7 @@ if($take_type == 'A') {
 	$result = sql_query($sql);
 
 	for($i=0; $ch = sql_fetch_array($result); $i++) { 
-		$sql = " insert into {$g5['inventory_table']}
-					set ch_id = '{$ch['ch_id']}',
-						it_id = '{$it_id}',
-						it_name = '{$it_name}',
-						ch_name = '{$ch['ch_name']}'";
-		sql_query($sql);
+		insert_inventory($ch['ch_id'], $it_id, $it, $item_count);
 	}
 } else {
 	// 개별지급
@@ -41,12 +43,7 @@ if($take_type == 'A') {
 	if (!$ch['ch_id'])
 		alert('존재하는 캐릭터가 아닙니다.');
 
-	$sql = " insert into {$g5['inventory_table']}
-				set ch_id = '{$ch['ch_id']}',
-					it_id = '{$it_id}',
-					it_name = '{$it_name}',
-					ch_name = '{$ch['ch_name']}'";
-	sql_query($sql);
+	insert_inventory($ch['ch_id'], $it_id, $it, $item_count);
 }
 
 
