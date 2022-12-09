@@ -98,7 +98,7 @@ if(!$tabs) { $tabs = 'c'; }
 	<div class="data">
 		
 		<div class="control">
-			<? if(($ch['ch_state'] != '승인' && $is_mod_character) || $is_admin) { ?>
+			<? if($ch['ch_state'] != '승인' || $is_mod_character || $is_admin) { ?>
 			<a href="./character_form.php?w=u&amp;ch_id=<?=$ch['ch_id']?>">
 				수정
 			</a>
