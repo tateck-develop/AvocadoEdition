@@ -24,12 +24,12 @@ if($total > 0 ) {
 
 	for($i = 0; $me = sql_fetch_array($result); $i++) {
 		if($me['me_send_mb_id'] == $member['mb_id']) { 
-			$class = "right";
+			$class = "me";
 			$mb = $member;
 			$ch = $character;
 			$del= './memo_delete.php?me_id='.$me['me_id'];
 		} else { 
-			$class = "";
+			$class = "you";
 			$mb = $re_mb;
 			$ch = $re_ch;
 			$del = '';

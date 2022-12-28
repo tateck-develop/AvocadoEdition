@@ -32,12 +32,12 @@ for($i=($max_count-1); $i >= 0; $i--) {
 	$me = $list[$i];
 
 	if($me['me_send_mb_id'] == $member['mb_id']) { 
-		$class = "right";
+		$class = "me";
 		$mb = $member;
 		$ch = $character;
 		$del= './memo_delete.php?me_id='.$me['me_id'];
 	} else { 
-		$class = "";
+		$class = "you";
 		$mb = $re_mb;
 		$ch = $re_ch;
 		$del = '';
