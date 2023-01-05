@@ -4,14 +4,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_CSS_URL.'/member.css">', 0);
 ?>
 
 <div class="memberWrap">
-	<? for($i=0; $i < count($list); $i++) {
+	<?php for($i=0; $i < count($list); $i++) {
 		$ch_list = $list[$i];
-
-		if($side['si_name']) {
-			echo "<div class='title'>{$side['si_name']}</div>";
-		}
 	?>
 	<div class="member-box">
+		<?php if($side[$i]['si_name']) {
+			echo "<div class='title'>{$side[$i]['si_name']}</div>";
+		}
+		?>
 		<ul class="member-list">
 			<? for($k=0; $k < count($ch_list); $k++) {
 				$ch = $ch_list[$k];
