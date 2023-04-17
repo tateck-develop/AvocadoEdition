@@ -170,7 +170,7 @@
 .memo-inner  {padding:30px 10px; max-width:640px; margin:0 auto; min-height:300px; overflow:hidden;}
 .ui-list-control  {text-align:right; padding-bottom:20px;}
 
-.message-item  {display:block; position:relative; max-width:90%; width:570px; box-sizing:border-box; clear:both; margin-top:10px;}
+.message-item  {display:block; position:relative; max-width:90%; width:570px; box-sizing:border-box; clear:both; margin-top:10px; z-index: 1;}
 .message-item.index  {max-width:100%; width:100%;}
 .message-item .thumb  {display:block; position:absolute; top:0; width:80px; text-align:center;}
 .message-item .thumb em  {display:block; position:relative; padding-top:100%; background:no-repeat 50% 50%; background-size:cover; border:2px solid #656567;}
