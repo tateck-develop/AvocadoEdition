@@ -19,11 +19,11 @@ $item_log = explode("||", $item_log);
 
 if($log_type == 'S') { 
 	/** 탐색 로그 출력 **/
-	include($board_skin_path."/action/log.seeker.skin.php");
+	include($board_skin_path."/action/log.S.skin.php");
 }
 if($log_type == 'H') { 
 	/** 조합 로그 출력 **/
-	include($board_skin_path."/action/log.handmade.skin.php");
+	include($board_skin_path."/action/log.H.skin.php");
 }
 
 /******************************************************

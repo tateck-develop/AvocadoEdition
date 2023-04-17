@@ -8,7 +8,7 @@ set_session('ss_wr_id', $_REQUEST['wr_id']);
 
 if($character['ch_id']) { 
 	// 사용가능 아이템 검색
-	$temp_sql = "select it.it_id, it.it_name, inven.in_id from {$g5['inventory_table']} inven, {$g5['item_table']} it where it.it_id = inven.it_id and it.it_use_mmb_able = '1' and inven.ch_id = '{$character[ch_id]}' order by it_id asc";
+	$temp_sql = "select it.it_id, it.it_name, inven.in_id from {$g5['inventory_table']} inven, {$g5['item_table']} it where it.it_id = inven.it_id and it.it_use_mmb_able = '1' and inven.ch_id = '{$character['ch_id']}' order by it_id asc";
 	$mmb_item_result = sql_query($temp_sql);
 	$mmb_item = array();
 	for($i = 0; $row = sql_fetch_array($mmb_item_result); $i++) {
@@ -112,8 +112,8 @@ if($config['cf_use_map']) {
 						<div id="add_UPLOAD" <?=$write['wr_type'] == "URL" ? "style='display: none;'" : ""?>>
 							<input type="file" id="wr_file" name="bf_file[]" title="로그등록 :  용량 <?php echo $upload_max_filesize ?> 이하만 업로드 가능" class="frm_file frm_input view_image_area" />
 						</div>
-						<div id="add_URL" <?=$write[wr_type] != "URL" ? "style='display: none;'" : ""?>>
-							<input type="text" name="wr_url" value="<?=$write[wr_url]?>" title="이미지 링크를 가져와 주시길 바랍니다." id="wr_url" class="frm_input view_image_area" placeholder="이미지 링크 입력"/>
+						<div id="add_URL" <?=$write['wr_type'] != "URL" ? "style='display: none;'" : ""?>>
+							<input type="text" name="wr_url" value="<?=$write['wr_url']?>" title="이미지 링크를 가져와 주시길 바랍니다." id="wr_url" class="frm_input view_image_area" placeholder="이미지 링크 입력"/>
 						</div>
 					</fieldset>
 					<button type="submit" id="btn_submit" accesskey="s" class="ui-btn">업로드</button>

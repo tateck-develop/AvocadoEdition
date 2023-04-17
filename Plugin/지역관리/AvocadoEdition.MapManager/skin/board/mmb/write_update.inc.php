@@ -48,22 +48,22 @@ if(count($mb_nick_array) > 0) {
 				wr_id = '{$temp_wr_id}',
 				wr_num = '{$wr_num}',
 				bo_table = '{$bo_table}',
-				mb_id = '{$member[mb_id]}',
-				mb_name = '{$member[mb_nick]}',
+				mb_id = '{$member['mb_id']}',
+				mb_name = '{$member['mb_nick']}',
 				re_mb_id = '{$memo_search['mb_id']}',
 				re_mb_name = '{$memo_search['mb_name']}',
-				ch_side = '{$character[ch_side]}',
+				ch_side = '{$character['ch_side']}',
 				memo = '{$memo}',
 				bc_datetime = '".G5_TIME_YMDHIS."'
 			";
 
 			
 			// 동일 정보 있는지 확인 - wr_id/ bo_table / re_mb_id 로 판별
-			$bc = sql_fetch(" select bc_id from {$g5['call_table']} where wr_id= '{$temp_wr_id}' and bo_table= '{$bo_table}' and re_mb_id = '{$memo_search[mb_id]}' and mb_id = '{$member[mb_id]}' ");
+			$bc = sql_fetch(" select bc_id from {$g5['call_table']} where wr_id= '{$temp_wr_id}' and bo_table= '{$bo_table}' and re_mb_id = '{$memo_search['mb_id']}' and mb_id = '{$member['mb_id']}' ");
 			
 			if($bc['bc_id']) { 
 				// 정보가 있을 경우
-				$sql = " update {$g5['call_table']} set {$bc_sql_common} where bc_id = '{$bc[bc_id]}' ";
+				$sql = " update {$g5['call_table']} set {$bc_sql_common} where bc_id = '{$bc['bc_id']}' ";
 				sql_query($sql);
 			} else { 
 				// 정보가 없을 경우
@@ -95,7 +95,7 @@ if($w != 'cu') {
 	";
 
 	if($use_item) { 
-		$it = sql_fetch("select it.it_type, it.it_use_ever, it.it_name, it.it_id, it.it_value, it.it_content, it.it_content2 from {$g5[item_table]} it, {$g5[inventory_table]} inven where inven.in_id = '{$use_item}' and inven.it_id = it.it_id");
+		$it = sql_fetch("select it.it_type, it.it_use_ever, it.it_name, it.it_id, it.it_value, it.it_content, it.it_content2 from {$g5['item_table']} it, {$g5['inventory_table']} inven where inven.in_id = '{$use_item}' and inven.it_id = it.it_id");
 
 		// 아이템 제거
 		if(!$it['it_use_ever']) { 
@@ -110,7 +110,7 @@ if($w != 'cu') {
 			// 템 검색 시작
 			$item_result = sql_fetch("
 				select re_it_id as it_id
-					from {$g5[explorer_table]}
+					from {$g5['explorer_table']}
 					where	it_id = '".$it['it_id']."'
 						and (ie_per_s <= '{$seed}' and ie_per_e >= '{$seed}')
 					order by RAND()
@@ -121,14 +121,7 @@ if($w != 'cu') {
 				// 아이템 획득에 성공한 경우, 해당 아이템을 인벤토리에 삽입
 				// 아이템 획득에 성공 시
 				$item_result['it_name'] = get_item_name($item_result['it_id']);
-				$inven_sql = " insert into {$g5[inventory_table]}
-						set ch_id = '{$character[ch_id]}',
-							it_id = '{$item_result[it_id]}',
-							it_name = '{$item_result[it_name]}',
-							ch_name = '{$character[ch_name]}'";
-				sql_query($inven_sql);
-				$in_id = mysql_insert_id();
-
+				insert_inventory($character['ch_id'], $item_result['it_id']);
 				$item_log = "S||".$it['it_id']."||".$it['it_name']."||".$item_result['it_id']."||".$item_result['it_name'];
 			} else { 
 				$item_log = "F||".$it['it_id']."||".$it['it_name'];
@@ -137,7 +130,7 @@ if($w != 'cu') {
 			// 일반 아이템의 경우, 기본 사용 로그를 반환한다.
 			$item_log = "D||".$it['it_id']."||".$it['it_name']."||".$it['it_type']."||".$it['it_value']."||".$it['it_content']."||".$it['it_content2'];
 		}
-		$customer_sql .= " , wr_item = '{$it[it_id]}', wr_item_log = '{$item_log}'";
+		$customer_sql .= " , wr_item = '{$it['it_id']}', wr_item_log = '{$item_log}'";
 
 	}
 
@@ -173,17 +166,11 @@ if($w != 'cu') {
 					limit 0, 1
 			");
 
+			
 			if($item_result['it_id']) {
 				// 아이템 획득에 성공한 경우, 해당 아이템을 인벤토리에 삽입
 				// 아이템 획득에 성공 시
-				$inven_sql = " insert into {$g5['inventory_table']}
-						set ch_id = '{$character[ch_id]}',
-							it_id = '{$item_result[it_id]}',
-							it_name = '{$item_result[it_name]}',
-							ch_name = '{$character[ch_name]}'";
-				sql_query($inven_sql);
-				$in_id = mysql_insert_id();
-
+				insert_inventory($character['ch_id'], $item_result['it_id']);
 				$log = $action."||S||".$item_result['it_id']."||".$item_result['it_name']."||".$in_id;
 			} else { 
 				$log = $action."||F";
@@ -207,33 +194,25 @@ if($w != 'cu') {
 	//----------------------------------------------------------
 	if($action == 'H') { 
 		// 재료 정보 : make_1, make_2, make_3
-		$make_1 = sql_fetch("select inven.in_id, it.it_id, it.it_name, it.it_use_ever from {$g5['item_table']} it, {$g5['inventory_table']} inven where it.it_id = inven.it_id and inven.in_id = '{$make_1}'");
-		$make_2 = sql_fetch("select inven.in_id, it.it_id, it.it_name, it.it_use_ever from {$g5['item_table']} it, {$g5['inventory_table']} inven where it.it_id = inven.it_id and inven.in_id = '{$make_2}'");
-		$make_3 = sql_fetch("select inven.in_id, it.it_id, it.it_name, it.it_use_ever from {$g5['item_table']} it, {$g5['inventory_table']} inven where it.it_id = inven.it_id and inven.in_id = '{$make_3}'");
+		$make_1 = get_inventory_item($make_1);
+		$make_2 = get_inventory_item($make_2);
+		$make_3 = get_inventory_item($make_3);
 
-		$re_item[0] = $make_1[it_id];
-		$re_item[1] = $make_2[it_id];
-		$re_item[2] = $make_3[it_id];
+		$re_item[0] = $make_1['it_id'];
+		$re_item[1] = $make_2['it_id'];
+		$re_item[2] = $make_3['it_id'];
 		sort($re_item);
 		$re_item_order = implode("||", $re_item);
 		
 		$re = sql_fetch("select it_id from {$g5['item_table']}_recepi where re_item_order = '{$re_item_order}' and re_use = '1'");;
-		if(!$re[it_id]) {
+		if(!$re['it_id']) {
 			// 레시피 조합 실패
 			$log = $action."||F||NON||NON||".$re_item_order;
 		} else { 
 			// 레시피 조합 성공
-			$item = get_item($re[it_id]);
-
-			$inven_sql = " insert into {$g5['inventory_table']}
-						set ch_id = '{$character[ch_id]}',
-							it_id = '{$item[it_id]}',
-							it_name = '{$item[it_name]}',
-							ch_name = '{$character[ch_name]}'";
-			sql_query($inven_sql);
-			$in_id = mysql_insert_id();
-
-			$log = $action."||S||".$re[it_id]."||".$item[it_name]."||".$in_id."||".$re_item_order;
+			$item = get_item($re['it_id']);
+			insert_inventory($character['ch_id'], $item['it_id'], $item);
+			$log = $action."||S||".$re['it_id']."||".$item['it_name']."||".$in_id."||".$re_item_order;
 		}
 
 		$customer_sql .= " , wr_log = '{$log}' ";
@@ -269,7 +248,7 @@ if($w != 'cu') {
 
 			$me = sql_fetch("
 				select *
-					from {$g5[map_event_table]}
+					from {$g5['map_event_table']}
 					where	ma_id = '".$ma['ma_id']."'
 						and (me_per_s <= '{$seed}' and me_per_e >= '{$seed}')
 						and me_use = '1'
@@ -297,14 +276,8 @@ if($w != 'cu') {
 					// 아이템 획득에 성공한 경우, 해당 아이템을 인벤토리에 삽입
 					// 아이템 획득에 성공 시
 					$item_result = get_item($me['me_get_item']);
-					$inven_sql = " insert into {$g5[inventory_table]}
-							set ch_id = '{$character[ch_id]}',
-								it_id = '{$item_result[it_id]}',
-								it_name = '{$item_result[it_name]}',
-								ch_name = '{$character[ch_name]}'";
-					sql_query($inven_sql);
-					$in_id = mysql_insert_id();
-					$event_log_conttent = $item_result[it_name].j($item_result[it_name], '을')." 획득했다!";
+					insert_inventory($character['ch_id'], $item_result['it_id']);
+					$event_log_conttent = $item_result['it_name'].j($item_result['it_name'], '을')." 획득했다!";
 
 				} else if($me['me_type'] == '화폐') { 
 					// 소지금 변동
@@ -364,7 +337,7 @@ if($w != 'cu') {
 		$mon_hp = $origin['wr_mon_now_hp'];
 		$mon_attack = $origin['wr_mon_attack'];
 		$mon_state = $origin['wr_mon_state'];
-
+		/*
 		/*********************************
 			공격력 산출 부분
 			: 커뮤니티의 공격력 산출 공식에 맞게 변경하세요
@@ -384,36 +357,37 @@ if($w != 'cu') {
 		// 최종 몬스터에게 입힌 데미지 산출 공식
 		$result_attack = $mon_attack - $attack;		// 몬스터 반격치에서 최종 공격력 수치를 제외한다.
 
-		if($mon_hp < 1) { break; } // 몬스터 HP가 0일 경우 탈출! 
+		if($mon_hp > 0) { 
 
-		if($result_attack > 0) {
-			// 몬스터의 공격력 > 유저의 공격력
+			if($result_attack > 0) {
+				// 몬스터의 공격력 > 유저의 공격력
 
-			/****************************************************************************************
-				유저의 HP를 차감하는 공식이 추가 되어야 하는 부분
+				/****************************************************************************************
+					유저의 HP를 차감하는 공식이 추가 되어야 하는 부분
 
-				* 커스텀된 소스를 추가하세요
+					* 커스텀된 소스를 추가하세요
 
-			****************************************************************************************/
+				****************************************************************************************/
 
-		} else if($result_attack < 0) { 
-			// 몬스터의 공격력 < 유저의 공격력
+			} else if($result_attack < 0) { 
+				// 몬스터의 공격력 < 유저의 공격력
 
-			$mon_hp = $mon_hp + $result_attack;
-			if($mon_hp < 0) {
-				// 막타일 경우 이벤트 종료 선언
-				$mon_hp = 0;
-				$mon_state = 'E';
+				$mon_hp = $mon_hp + $result_attack;
+				if($mon_hp < 0) {
+					// 막타일 경우 이벤트 종료 선언
+					$mon_hp = 0;
+					$mon_state = 'E';
+				}
+				$sql = " update {$write_table}
+						set wr_mon_now_hp = '{$mon_hp}',
+							wr_mon_state = '{$mon_state}'
+					  where wr_id = '{$wr_id}' ";
+				sql_query($sql);
 			}
-			$sql = " update {$write_table}
-					set wr_mon_now_hp = '{$mon_hp}',
-						wr_mon_state = '{$mon_state}'
-				  where wr_id = '{$wr_id}' ";
-			sql_query($sql);
-		}
 
-		$log = $action."||{$mon_state}||".$mon_attack."||".$attack."||유저의HP정보||".$dice_attack1."+".$dice_attack2."+".$item_attack;
-		$customer_sql .= " , wr_log = '{$log}' ";
+			$log = $action."||{$mon_state}||".$mon_attack."||".$attack."||유저의HP정보||".$dice_attack1."+".$dice_attack2."+".$item_attack;
+			$customer_sql .= " , wr_log = '{$log}' ";
+		}
 	}
 	
 	/******************************************************
