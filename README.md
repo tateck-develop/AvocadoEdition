@@ -30,5 +30,5 @@ Avocado Edition : Original Character Community Solution by GUNUBOARD Custom
 
 ----------------------------
 
-기타 문제 발생 시, https://avocado-edition-rout.postype.com 로 연락 주시길 바랍니다.
+기타 문제 발생 시, tateck09@gmail.com 로 연락 주시길 바랍니다.
 감사합니다!
