@@ -9,7 +9,7 @@ if ($is_comment_write) {
 	<form name="fviewcomment" action="./write_comment_update.php" onsubmit="return fviewcomment_submit(this);" method="post" autocomplete="off">
 	<input type="hidden" name="w" value="<?php echo $w ?>" id="w">
 	<input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
-	<input type="hidden" name="wr_id" value="<?php echo $list_item[wr_id] ?>">
+	<input type="hidden" name="wr_id" value="<?php echo $list_item['wr_id'] ?>">
 	<input type="hidden" name="sca" value="<?php echo $sca ?>">
 	<input type="hidden" name="sfl" value="<?php echo $sfl ?>">
 	<input type="hidden" name="stx" value="<?php echo $stx ?>">
@@ -65,12 +65,12 @@ if ($is_comment_write) {
 		<? } ?>
 
 			<input type="checkbox" name="game" id="game_<?=$list_item['wr_id']?>" value="dice" />
-			<label for="game_<?=$list_item[wr_id]?>">주사위</label>
+			<label for="game_<?=$list_item['wr_id']?>">주사위</label>
 
 		<? if($board['bo_use_noname'] && $is_member) { ?>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="checkbox" name="wr_noname" id="wr_noname_<?=$list_item['wr_id']?>" value="1" />
-			<label for="wr_noname_<?=$list_item[wr_id]?>">익명</label>
+			<label for="wr_noname_<?=$list_item['wr_id']?>">익명</label>
 		<? } ?>
 		</div>
 

@@ -68,9 +68,9 @@ for ($index=0; $index<count($comment); $index++) {
 
 		// 오너 정보 출력
 		if($log_comment['mb_id']) {
-			$log_comment['name'] = "<a href='".G5_BBS_URL."/memo_form.php?me_recv_mb_id={$log_comment['mb_id']}' class='send_memo'>{$log_comment[wr_name]}</a>";
+			$log_comment['name'] = "<a href='".G5_BBS_URL."/memo_form.php?me_recv_mb_id={$log_comment['mb_id']}' class='send_memo'>{$log_comment['wr_name']}</a>";
 		} else { 
-			$log_comment['name'] = $log_comment[wr_name];
+			$log_comment['name'] = $log_comment['wr_name'];
 		}
 
 		if(!$list_item['wr_noname'] && $list_item['mb_id'] == $log_comment['mb_id']) { 
@@ -171,7 +171,7 @@ for ($index=0; $index<count($comment); $index++) {
 			<?=date('Y-m-d H:i:s', strtotime($log_comment['wr_datetime']))?>
 		</span>
 		<?php if ($log_comment['is_del'])  { ?><a href="<?php echo $log_comment['del_link'];  ?>" onclick="return comment_delete();" class="del">삭제</a><?php } ?>
-		<?php if ($log_comment['is_edit']) { ?><a href="<?php echo $c_edit_href;  ?>" onclick="comment_box('<?php echo $comment_id ?>', '<?=$list_item[wr_id]?>'); return false;" class="mod">수정</a><?php } ?>
+		<?php if ($log_comment['is_edit']) { ?><a href="<?php echo $c_edit_href;  ?>" onclick="comment_box('<?php echo $comment_id ?>', '<?=$list_item['wr_id']?>'); return false;" class="mod">수정</a><?php } ?>
 	</div>
 </div>
 <? } ?>

@@ -65,7 +65,7 @@ if(!$is_error) {
 
 	if($character['ch_id']) { 
 		// 사용가능 아이템 검색
-		$temp_sql = "select it.it_id, it.it_name, inven.in_id from {$g5['inventory_table']} inven, {$g5['item_table']} it where it.it_id = inven.it_id and it.it_use_mmb_able = '1' and inven.ch_id = '{$character[ch_id]}'";
+		$temp_sql = "select it.it_id, it.it_name, inven.in_id from {$g5['inventory_table']} inven, {$g5['item_table']} it where it.it_id = inven.it_id and it.it_use_mmb_able = '1' and inven.ch_id = '{$character['ch_id']}'";
 		$mmb_item_result = sql_query($temp_sql);
 		$mmb_item = array();
 		for($i = 0; $row = sql_fetch_array($mmb_item_result); $i++) {
@@ -180,8 +180,8 @@ if(!$is_error) {
 							<input type="checkbox" id="bf_file_del0" name="bf_file_del[0]" value="1"> <label for="bf_file_del0"><?php echo $file[0]['source'].'('.$file[0]['size'].')';  ?> 로그 삭제</label>
 						<?php } ?>
 					</div>
-					<div id="add_URL" <?=$write[wr_type] != "URL" ? "style='display: none;'" : ""?>>
-						<input type="text" name="wr_url" value="<?=$write[wr_url]?>" title="이미지 링크를 가져와 주시길 바랍니다." id="wr_url" class="frm_input view_image_area" placeholder="이미지 링크 입력"/>
+					<div id="add_URL" <?=$write['wr_type'] != "URL" ? "style='display: none;'" : ""?>>
+						<input type="text" name="wr_url" value="<?=$write['wr_url']?>" title="이미지 링크를 가져와 주시길 바랍니다." id="wr_url" class="frm_input view_image_area" placeholder="이미지 링크 입력"/>
 					</div>
 				</dd>
 			</dl>
@@ -233,11 +233,11 @@ if(!$is_error) {
 								<select name="make_1" id="make_1" class="make-imtem">
 									<option value="">재료 선택</option>
 						<?
-							$re_result = sql_query("select * from {$g5['inventory_table']} inven, {$g5['item_table']} it where inven.ch_id = '{$character[ch_id]}' and it.it_use_recepi = 1 and inven.it_id = it.it_id");
+							$re_result = sql_query("select * from {$g5['inventory_table']} inven, {$g5['item_table']} it where inven.ch_id = '{$character['ch_id']}' and it.it_use_recepi = 1 and inven.it_id = it.it_id");
 							for($i=0; $re_row = sql_fetch_array($re_result); $i++) { 
 						?>
-									<option value="<?=$re_row[in_id]?>">
-										<?=$re_row[it_name]?>
+									<option value="<?=$re_row['in_id']?>">
+										<?=$re_row['it_name']?>
 									</option>
 						<?
 							} ?>
@@ -250,11 +250,11 @@ if(!$is_error) {
 								<select name="make_2" id="make_2" class="make-imtem">
 									<option value="">재료 선택</option>
 						<?
-							$re_result = sql_query("select * from {$g5['inventory_table']} inven, {$g5['item_table']} it where inven.ch_id = '{$character[ch_id]}' and it.it_use_recepi = 1 and inven.it_id = it.it_id");
+							$re_result = sql_query("select * from {$g5['inventory_table']} inven, {$g5['item_table']} it where inven.ch_id = '{$character['ch_id']}' and it.it_use_recepi = 1 and inven.it_id = it.it_id");
 							for($i=0; $re_row = sql_fetch_array($re_result); $i++) { 
 						?>
-									<option value="<?=$re_row[in_id]?>">
-										<?=$re_row[it_name]?>
+									<option value="<?=$re_row['in_id']?>">
+										<?=$re_row['it_name']?>
 									</option>
 						<?
 							} ?>
@@ -267,11 +267,11 @@ if(!$is_error) {
 								<select name="make_3" id="make_3" class="make-imtem">
 									<option value="">재료 선택</option>
 						<?
-							$re_result = sql_query("select * from {$g5['inventory_table']} inven, {$g5['item_table']} it where inven.ch_id = '{$character[ch_id]}' and it.it_use_recepi = 1 and inven.it_id = it.it_id");
+							$re_result = sql_query("select * from {$g5['inventory_table']} inven, {$g5['item_table']} it where inven.ch_id = '{$character['ch_id']}' and it.it_use_recepi = 1 and inven.it_id = it.it_id");
 							for($i=0; $re_row = sql_fetch_array($re_result); $i++) { 
 						?>
-									<option value="<?=$re_row[in_id]?>">
-										<?=$re_row[it_name]?>
+									<option value="<?=$re_row['in_id']?>">
+										<?=$re_row['it_name']?>
 									</option>
 						<?
 							} ?>
@@ -290,8 +290,8 @@ if(!$is_error) {
 					<?
 						// 위치 이동 커멘드 관련
 						// 현재 위치에서 이동이 가능한 칸만 가져온다
-						$map = sql_fetch("select * from {$g5[map_table]} where ma_id = '{$character['ma_id']}'");
-						$able_sql = "select * from {$g5[map_move_table]} where mf_start = '{$character['ma_id']}' and mf_use = '1'";
+						$map = sql_fetch("select * from {$g5['map_table']} where ma_id = '{$character['ma_id']}'");
+						$able_sql = "select * from {$g5['map_move_table']} where mf_start = '{$character['ma_id']}' and mf_use = '1'";
 						$map_able = sql_query($able_sql);
 					?>
 						<dl>
@@ -300,7 +300,7 @@ if(!$is_error) {
 								<select name="re_ma_id" id="re_ma_id" >
 									<option value="<?=$character['ma_id']?>">[현재위치 유지] <?=$map['ma_name']?></option>
 								<? for($i=0; $mable = sql_fetch_array($map_able); $i++) { 
-									$end_map = sql_fetch("select ma_name from {$g5[map_table]} where ma_id = '{$mable['mf_end']}'");
+									$end_map = sql_fetch("select ma_name from {$g5['map_table']} where ma_id = '{$mable['mf_end']}'");
 								?>
 									<option value="<?=$mable['mf_end']?>">[위치이동] <?=$map['ma_name']?> ▶ <?=$end_map['ma_name']?></option>
 								<? } ?>
