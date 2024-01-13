@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_CSS_URL.'/member.css">', 0);
 		$ch_list = $list[$i];
 	?>
 	<div class="member-box">
-		<?php if($side[$i]['si_name']) {
+		<?php if(is_array($side[$i]) && $side[$i]['si_name']) {
 			echo "<div class='title'>{$side[$i]['si_name']}</div>";
 		}
 		?>
