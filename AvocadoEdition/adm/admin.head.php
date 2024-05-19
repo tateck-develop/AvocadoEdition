@@ -117,7 +117,7 @@ function imageview(id, w, h)
 		<a href="<?=G5_URL?>" class="ico-home" target="_blank">
 			커뮤니티
 		</a>
-		<a href="http://bytheallspark.cafe24.com/" class="ico-dev" target="_blank">
+		<a href="https://avocado-edition-rout.postype.com/" class="ico-dev" target="_blank">
 			아보카도 솔루션
 		</a>
 	</aside>
