@@ -13,7 +13,7 @@
 					bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
 					bUseVerticalResizer : true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
 					bUseModeChanger : true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-					aAdditionalFontList : [['Noto Sans KR', 'Noto Sans KR'],['Nanum Gothic', '나눔고딕'],['Nanum Myeongjo', '나눔명조'],['aphopis', 'APHOPIS']],		// 추가 글꼴 목록
+					aAdditionalFontList : [['Noto Sans KR', 'Noto Sans KR'],['Nanum Gothic', '나눔고딕'],['Nanum Myeongjo', '나눔명조']],		// 추가 글꼴 목록
 					fOnBeforeUnload : function(){
 						//alert("완료!");
 					}

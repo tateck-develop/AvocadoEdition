@@ -1,22 +1,17 @@
 @charset "UTF-8";
+@import url(../../../../css/style.css);
+@import url(../../../../data/css/_design.config.css);
 /* Nanum Gothic */
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* Noto Sans KR */
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 /* Nanum Myeongjo */
 @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
-@font-face {
-	font-family: 'aphopis';
-		src:	url('../../../../css/fonts/MetalMania-Regular.eot');
-		src:	url('../../../../css/fonts/MetalMania-Regular.eot#iefix') format('embedded-opentype'),
-				url('../../../../css/fonts/MetalMania-Regular.ttf') format('truetype'),
-				url('../../../../css/fonts/MetalMania-Regular.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
+
 
 /* NHN Web Standardization Team (http://html.nhndesign.com/) HHJ 090226 */
 /* COMMON */
+body {width:auto !important;}
 body,.se2_inputarea{margin:0;padding:0;font-family:'돋움',Dotum,Helvetica,Sans-serif;font-size:12px;line-height:1.5}
 /* body,.se2_inputarea,.se2_inputarea th,.se2_inputarea td{margin:0;padding:0;font-family:'돋움',Dotum,Helvetica,Sans-serif;font-size:12px;line-height:1.5;color:#666} */
 .se2_inputarea p,.se2_inputarea br{margin:0;padding:0}
