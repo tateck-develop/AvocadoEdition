@@ -178,6 +178,7 @@ table td {color:#888;}
 
 table .bo-right {border-right-width:1px !important;}
 table .bo-left {border-left-width:1px !important;}
+table * {word-break:break-all !important;}
 
 .tbl_frm01 {margin-bottom:20px;}
 .tbl_frm01 > table > tbody {border-top:2px solid #000; border-bottom:1px solid #eaeaea;}
