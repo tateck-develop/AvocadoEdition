@@ -50,14 +50,14 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm">
 		</colgroup>
 		<tbody>
 		<tr>
-			<th scope="row">메뉴영역 태그</th>
+			<th scope="row">메뉴영역</th>
 			<td>
 				<?php echo help('메뉴영역에 들어갈 내용을 자유롭게 작성해 주시길 바랍니다.') ?>
 				<?php echo editor_html('menu_content', get_text($menu_co['co_content'], 0)); ?>
 			</td>
 		</tr>
 		<tr>
-			<th scope="row">모바일 메뉴영역 태그</th>
+			<th scope="row">모바일 메뉴영역</th>
 			<td>
 				<?php echo help('메뉴영역에 들어갈 내용을 자유롭게 작성해 주시길 바랍니다. 따로 입력하지 않을 시, PC 메뉴가 출력됩니다.') ?>
 				<?php echo editor_html('m_menu_content', get_text($menu_co['co_mobile_content'], 0)); ?>
@@ -83,14 +83,14 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm">
 		</colgroup>
 		<tbody>
 		<tr>
-			<th scope="row">메인화면 태그</th>
+			<th scope="row">메인화면</th>
 			<td>
 				<?php echo help('메인영역에 들어갈 내용을 자유롭게 작성해 주시길 바랍니다.') ?>
 				<?php echo editor_html('main_content', get_text($main_co['co_content'], 0)); ?>
 			</td>
 		</tr>
 		<tr>
-			<th scope="row">모바일 메인화면 태그</th>
+			<th scope="row">모바일 메인화면</th>
 			<td>
 				<?php echo help('메인영역에 들어갈 내용을 자유롭게 작성해 주시길 바랍니다. 따로 입력하지 않을 시, PC 메인이 출력됩니다.') ?>
 				<?php echo editor_html('m_main_content', get_text($main_co['co_mobile_content'], 0)); ?>
@@ -113,8 +113,10 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm">
 	<?php echo $pg_anchor ?>
 
 	<div class="local_desc02 local_desc">
-		<p>※ 특수 기능 삽입 코드 : 내용 작성 시, 아래의 글자를 입력하면 화면에 해당 기능을 가진 폼이 출력됩니다.</p>
-		<p>※ 출력폼 수정을 원할 시, 파일 위치로 가셔서 해당 파일에 작성되어 있는 텍스트 혹은 기능을 수정하셔야 합니다.</p>
+		<p>특수 기능 삽입 코드 : 내용 작성 시, 아래의 글자를 입력하면 화면에 해당 기능을 가진 폼이 출력됩니다.</p>
+	</div>
+	<div class="local_desc02 local_desc">
+		<p>출력폼 수정을 원할 시, 파일 위치로 가셔서 해당 파일에 작성되어 있는 텍스트 혹은 기능을 수정하셔야 합니다.</p>
 	</div>
 
 	<div class="tbl_head01 tbl_wrap">

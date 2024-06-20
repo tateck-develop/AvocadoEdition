@@ -147,22 +147,20 @@ $pg_anchor = '<ul class="anchor">
 		<colgroup>
 			<col style="width: 130px;">
 			<col>
+			<col style="width: 130px;">
+			<col>
+			<col style="width: 130px;">
+			<col>
 		</colgroup>
 		<tbody>
 		<tr>
 			<th scope="row"><label for="lv_name"><?=$config['cf_rank_name']?>명<strong class="sound_only">필수</strong></label></th>
 			<td><input type="text" name="lv_name" id="lv_name" class="required frm_input" required></td>
-		</tr>
-		<tr>
 			<th scope="row"><label for="lv_exp">요구<?=$config['cf_exp_name']?><strong class="sound_only">필수</strong></label></th>
 			<td><input type="text" name="lv_exp" id="lv_exp" class="required frm_input" required></td>
-		</tr>
-		<tr>
 			<th scope="row"><label for="lv_add_state">추가스텟포인트<strong class="sound_only">필수</strong></label></th>
 			<td><input type="text" name="lv_add_state" id="lv_add_state" class="required frm_input"></td>
 		</tr>
-		
-		
 		</tbody>
 		</table>
 	</div>

@@ -1,7 +1,7 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
 ?>
-
+		</div>
 	</section>
 </div>
 
@@ -14,26 +14,20 @@ if (!defined('_GNUBOARD_')) exit;
 <script src="<?php echo G5_ADMIN_URL ?>/admin.ajax.js?ver=<?php echo G5_JS_VER; ?>"></script>
 <script>
 $(function(){
-    var hide_menu = false;
-    var mouse_event = false;
-    var oldX = oldY = 0;
+	var hide_menu = false;
+	var mouse_event = false;
+	var oldX = oldY = 0;
 
-    $(document).mousemove(function(e) {
-        if(oldX == 0) {
-            oldX = e.pageX;
-            oldY = e.pageY;
-        }
+	$(document).mousemove(function(e) {
+		if(oldX == 0) {
+			oldX = e.pageX;
+			oldY = e.pageY;
+		}
 
-        if(oldX != e.pageX || oldY != e.pageY) {
-            mouse_event = true;
-        }
-    });
-
-    // 폰트 리사이즈 쿠키있으면 실행
-    var font_resize_act = get_cookie("ck_font_resize_act");
-    if(font_resize_act != "") {
-        font_resize("container", font_resize_act);
-    }
+		if(oldX != e.pageX || oldY != e.pageY) {
+			mouse_event = true;
+		}
+	});
 	
 	$('.gnb_1da').bind('click', function(){
 		var gnb_parent = $(this).closest('li');

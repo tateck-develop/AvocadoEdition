@@ -6,7 +6,7 @@ $menu['menu100'] = array (
 	array('100250', '화면 설정', G5_ADMIN_URL.'/viewer_form.php', 'cf_view_basic'),
 	array('100280', '테마설정', G5_ADMIN_URL.'/theme.php',     'cf_theme', 1),
 	array('100300', '디자인 설정', G5_ADMIN_URL.'/design_form.php', 'cf_design_basic'),
-	array('100310', '팝업레이어관리', G5_ADMIN_URL.'/newwinlist.php', 'scf_poplayer'),
+	/*array('100310', '팝업레이어관리', G5_ADMIN_URL.'/newwinlist.php', 'scf_poplayer'),*/
 	array('100320', '메인슬라이드 관리', G5_ADMIN_URL.'/banner_list.php', 'cf_banner'),
 	array('100330', '인트로 관리', G5_ADMIN_URL.'/intro_list.php', 'cf_banner'),
 	array('100990', 'DB관리', G5_DB_URL, '')

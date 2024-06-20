@@ -39,7 +39,32 @@ if ($_FILES['cf_favicon_file']['name']) {
 	$cf_favicon = $site_style_url."/".$image_name;
 }
 
+$cf_profile_group = "";
+$add_str = "";
+for($i=0; $i < count($_POST['cf_profile_group_spr']); $i++) {
+	if($_POST['cf_profile_group_spr'][$i]) {
+		$cf_profile_group .= $add_str.$_POST['cf_profile_group_spr'][$i];
+		$add_str = "||";
+	}
+}
 
+$cf_shop_category = "";
+$add_str = "";
+for($i=0; $i < count($_POST['cf_shop_category_spr']); $i++) {
+	if($_POST['cf_shop_category_spr'][$i]) {
+		$cf_shop_category .= $add_str.$_POST['cf_shop_category_spr'][$i];
+		$add_str = "||";
+	}
+}
+
+$cf_item_category = "";
+$add_str = "";
+for($i=0; $i < count($_POST['cf_item_category_spr']); $i++) {
+	if($_POST['cf_item_category_spr'][$i]) {
+		$cf_item_category .= $add_str.$_POST['cf_item_category_spr'][$i];
+		$add_str = "||";
+	}
+}
 
 $sql = " update {$g5['config_table']}
 			set cf_title			= '{$_POST['cf_title']}',
@@ -47,8 +72,9 @@ $sql = " update {$g5['config_table']}
 				cf_twitter			= '{$_POST['cf_twitter']}',
 				cf_side_title		= '{$_POST['cf_side_title']}',
 				cf_class_title		= '{$_POST['cf_class_title']}',
-				cf_shop_category	= '{$_POST['cf_shop_category']}',
-				cf_item_category	= '{$_POST['cf_item_category']}',
+				cf_profile_group	= '{$cf_profile_group}',
+				cf_shop_category	= '{$cf_shop_category}',
+				cf_item_category	= '{$cf_item_category}',
 				cf_open				= '{$_POST['cf_open']}',
 				cf_site_descript	= '{$_POST['cf_site_descript']}',
 				cf_site_img			= '{$cf_site_img}',

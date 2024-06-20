@@ -1,0 +1,62 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {box-sizing:border-box; font-family:"Noto Sans KR", sans-serif;}
+html,
+body {margin:0; padding:0;}
+html {overflow:auto; box-sizing:border-box;}
+html {background:rgb(24,32,46); background:url(../img/bak_simbol.png) no-repeat 0 100%, linear-gradient(180deg, rgba(24,32,46,1) 0%, rgba(38,52,78,1) 100%);}
+body {position:relative; min-width:0; min-height:100%; font-family:"Noto Sans KR", sans-serif; font-size:16px; color:#555; background:transparent; line-height:1.4;}
+
+.loginLayout {display:table; width:100%; height:100%; table-layout:fixed;}
+.loginLayout > .in {display:table-cell; vertical-align:middle; padding:20px;}
+
+.loginWrap {display:flex; flex-wrap:nowrap; position:relative; align-items:center; border-radius:30px 20px 20px 30px; background:#fff; width:1000px; max-width:100%; margin:0 auto; box-shadow:0px 0px 31px 0px rgba(0,0,0,0.39); -webkit-box-shadow:0px 0px 31px 0px rgba(0,0,0,0.39); -moz-box-shadow:0px 0px 31px 0px rgba(0,0,0,0.39);}
+.loginWrap > * {display:block; position:relative; width:55%; flex-grow:1;}
+.loginWrap > * + * {width:45%;}
+
+.loginWrap .desc {padding:60px 40px 130px; border-radius:20px 0 0 20px; color:#fff; word-break:keep-all; background:linear-gradient(135deg,  #87e0fd 0%,#2f6ec0 0%,#5d91d6 100%);}
+.loginWrap .desc h1 {font-size:40px;}
+.loginWrap .desc h1 p {font-size:14px;}
+.loginWrap .desc ul,
+.loginWrap .desc li {margin:0; padding:0; list-style:none;}
+.loginWrap .desc ul {margin:30px 0; padding:30px 0; border:1px solid rgba(255,255,255,.5); border-left-width:0; border-right-width:0; opacity:.8;}
+.loginWrap .desc ul li {font-size:13px; line-height:1.4;}
+.loginWrap .desc ul li + li {margin-top:5px;}
+.loginWrap .desc .copy {font-size:12px; opacity:.4;}
+
+.loginWrap .loginForm {padding:70px 40px;}
+.loginWrap .loginForm .frame {max-width:300px; margin:0 auto;}
+.loginWrap .loginForm .input {display:block; position:relative; border-bottom:1px solid #eaeaea;}
+.loginWrap .loginForm .input input {display:block; position:relative; font-family:inherit !important; font-size:17px; font-weight:600; height:60px; border:none !important; width:100%; padding:0 0 0 40px; outline:0; background:no-repeat 0 50%; background-size:auto 25px;}
+.loginWrap .loginForm .input input[name="mb_id"] {background-image:url(../img/ico_id.png);}
+.loginWrap .loginForm .input input[name="mb_id"]:focus {background-image:url(../img/ico_id_on.png);}
+.loginWrap .loginForm .input input[name="mb_password"] {background-image:url(../img/ico_pw.png);}
+.loginWrap .loginForm .input input[name="mb_password"]:focus {background-image:url(../img/ico_pw_on.png);}
+.loginWrap .loginForm .check {display:block; position:relative; padding:20px 0; text-align:right;}
+.loginWrap .loginForm .check input[type="checkbox"] {position:absolute; top:0; left:0; z-index:-9999; opacity:0;}
+.loginWrap .loginForm .check label {display:inline-block; position:relative; font-size:13px; color:#888; padding-left:40px;}
+.loginWrap .loginForm .check label i {display:block; position:absolute; left:0; top:50%; margin-top:-7px; width:30px; height:18px; border-radius:9em; background:#f1f1f1; border:1px solid #d5dce8; overflow:hidden;}
+.loginWrap .loginForm .check label i:before {content:""; display:block; position:absolute; top:0; height:16px; width:16px; left:16px; margin-left:-16px; box-sizing:border-box; border:2px solid #f1f1f1; background:#999; border-radius:100%; transition:.3s all; -webkit-transition:.3s all;}
+.loginWrap .loginForm .check input:checked + label {font-weight:600; color:#2f6ec0;}
+.loginWrap .loginForm .check input:checked + label i:before {left:100%; background:#2f6ec0;}
+.loginWrap .loginForm .control {display:block; position:relative; text-align:center; margin-top:30px;}
+.loginWrap .loginForm .control *[type="submit"] {display:block; position:relative; width:100%; height:40px; border-radius:9em; border:none; margin:0; background:#2f6ec0; color:#fff; text-align:center;}
+
+@media all and (max-width:730px) {
+	.loginWrap {flex-wrap:wrap;}
+	.loginWrap > *,
+	.loginWrap > * + * {width:100%;}
+
+	.loginWrap {border-radius:30px 30px 20px 20px;}
+	.loginWrap .desc {padding:40px; border-radius:20px 20px 0 0;}
+	.loginWrap .loginForm {padding:40px;}
+	.loginWrap .loginForm .frame {max-width:100%;}
+}
+@media all and (max-width:640px) {
+	.loginWrap .desc,
+	.loginWrap .loginForm {padding:30px;}	
+	.loginWrap .desc h1 {font-size:28px;}
+	.loginWrap .desc p {font-size:13px;}
+	.loginWrap .desc ul {margin:20px 0; padding:20px 0;}
+}

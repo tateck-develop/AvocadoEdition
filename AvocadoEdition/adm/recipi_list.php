@@ -219,46 +219,41 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm">
 		<div class="tbl_frm01 tbl_wrap">
 			<table>
 			<colgroup>
-				<col style="width: 120px;">
+				<col style="width: 50px;">
 				<col>
 			</colgroup>
 			<tbody>
-			<tr>
-				<th scope="row">재료 01</th>
-				<td>
-					<input type="hidden" name="re_item1" id="re_item1" value="" />
-					<input type="text" name="re_item1_name" value="" id="re_item1_name" size="50" onkeyup="get_ajax_item(this, 'item_01_list', 're_item1', '레시피');" />
-					<div id="item_01_list" class="ajax-list-box"><div class="list"></div></div>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">재료 02</th>
-				<td>
-					<input type="hidden" name="re_item2" id="re_item2" value="" />
-					<input type="text" name="re_item2_name" value="" id="re_item2_name" size="50" onkeyup="get_ajax_item(this, 'item_02_list', 're_item2', '레시피');" />
-					<div id="item_02_list" class="ajax-list-box"><div class="list"></div></div>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">재료 03</th>
-				<td>
-					<input type="hidden" name="re_item3" id="re_item3" value="" />
-					<input type="text" name="re_item3_name" value="" id="re_item3_name" size="50" onkeyup="get_ajax_item(this, 'item_03_list', 're_item3', '레시피');" />
-					<div id="item_03_list" class="ajax-list-box"><div class="list"></div></div>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">결과</th>
-				<td>
-					<input type="hidden" name="it_id" id="it_id" value="" />
-					<input type="text" name="it_name" value="" id="it_name" size="50" onkeyup="get_ajax_item(this, 'item_result_list', 'it_id');" />
-					<div id="item_result_list" class="ajax-list-box"><div class="list"></div></div>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row"><label for="re_use">사용여부</label></th>
-				<td><input type="checkbox" name="re_use" value="1" id="re_use" checked /></td>
-			</tr>
+				<tr>
+					<th scope="row">사용</th>
+					<th scope="row">재료 01</th>
+					<th scope="row">재료 02</th>
+					<th scope="row">재료 03</th>
+					<th scope="row">결과</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="re_use" value="1" id="re_use" checked /></td>
+					<td>
+						<input type="hidden" name="re_item1" id="re_item1" value="" />
+						<input type="text" name="re_item1_name" value="" id="re_item1_name" size="50" onkeyup="get_ajax_item(this, 'item_01_list', 're_item1', '레시피');" />
+						<div id="item_01_list" class="ajax-list-box"><div class="list"></div></div>
+					</td>
+					<td>
+						<input type="hidden" name="re_item2" id="re_item2" value="" />
+						<input type="text" name="re_item2_name" value="" id="re_item2_name" size="50" onkeyup="get_ajax_item(this, 'item_02_list', 're_item2', '레시피');" />
+						<div id="item_02_list" class="ajax-list-box"><div class="list"></div></div>
+					</td>
+					<td>
+						<input type="hidden" name="re_item3" id="re_item3" value="" />
+						<input type="text" name="re_item3_name" value="" id="re_item3_name" size="50" onkeyup="get_ajax_item(this, 'item_03_list', 're_item3', '레시피');" />
+						<div id="item_03_list" class="ajax-list-box"><div class="list"></div></div>
+					</td>
+					<td>
+						<input type="hidden" name="it_id" id="it_id" value="" />
+						<input type="text" name="it_name" value="" id="it_name" size="50" onkeyup="get_ajax_item(this, 'item_result_list', 'it_id');" />
+						<div id="item_result_list" class="ajax-list-box"><div class="list"></div></div>
+					</td>
+					
+				</tr>
 			</tbody>
 			</table>
 		</div>
