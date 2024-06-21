@@ -178,7 +178,7 @@ $frm_submit = '<div class="btn_confirm01 btn_confirm">
 			<col>
 		</colgroup>
 		<tbody>
-		<tr>
+		<tr style="display:none;">
 			<th scope="row" class="pad vT">
 				<span class="lb">프로필 항목</span>
 				<button type="button" onclick="fn_add_repeatFrom('profileAddTable');" class="btn_small_add"><span class="material-symbols-outlined">add</span></button>
