@@ -76,7 +76,7 @@ $pg_anchor = '<ul class="anchor">
 			<col style="width: 100px;" />
 			<col style="width: 100px;" />
 			<col />
-			<col style="width: 150px;" />
+			<col style="width: 70px;" />
 		</colgroup>
 		<thead>
 		<tr>
@@ -89,7 +89,7 @@ $pg_anchor = '<ul class="anchor">
 			<th scope="col">최소값</th>
 			<th scope="col">순서</th>
 			<th scope="col">도움말</th>
-			<th scope="col">기준</th>
+			<th scope="col">최대값</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -120,7 +120,7 @@ $pg_anchor = '<ul class="anchor">
 			</td>
 			<td>
 				<input type="checkbox" name="st_use_max[<?php echo $i ?>]" id="st_use_max_<?=$i?>" value="1" <?=$row['st_use_max'] ? "checked" : ""?>/>
-				<label for="st_use_max_<?=$i?>">최대값 기준으로 출력</label>
+				<label for="st_use_max_<?=$i?>"></label>
 			</td>
 
 		</tr>
