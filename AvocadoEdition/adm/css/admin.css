@@ -99,7 +99,7 @@ input[type="checkbox"].show {background-image:url(../img/spr_checkbox.png);}
 input[type="radio"].show {background-image:url(../img/spr_radio.png);}
 
 input[type="checkbox"]:not(.show) {position:absolute; top:0; left:0; z-index:-9999; opacity:0;}
-input[type="checkbox"] + label {display:inline-block; position:relative; vertical-align:middle; padding:0 10px 0 45px; height:30px; line-height:30px;}
+input[type="checkbox"] + label {display:inline-block; position:relative; vertical-align:middle; padding:0 10px 0 45px; height:30px; line-height:30px; max-width:100%; overflow:hidden; white-space:nowrap;}
 input[type="checkbox"] + label:before,
 input[type="checkbox"] + label:after {content:""; display:block; position:absolute; top:50%; border-radius:9em; transform:translateY(-50%); -webkit-transform:translateY(-50%); transition:.3s all; -webkit-transition:.3s all;}
 input[type="checkbox"] + label:before {border:2px solid #ddd; left:0; width:35px; height:20px;}
