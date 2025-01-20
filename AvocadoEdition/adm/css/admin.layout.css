@@ -81,6 +81,7 @@
 
 .container section[id*="anc_"] {padding-top:0;}
 .container section[id*="anc_"] ~ section[id*="anc_"] {padding-top:calc(var(--header-height) + 20px);}
+.container .groupWrap section[id*="anc_"] ~ section[id*="anc_"] {padding-top:0 !important;}
 
 .container .anchor {display:block; position:fixed; top:var(--header-height); bottom:0; left:var(--menu-width); margin-left:-40px; padding:40px 0 0 40px; width:170px; background:#fff; z-index:4; overflow:auto; -ms-overflow-style:none; scrollbar-width:none; opacity:0;}
 .container .anchor.actived {opacity:1;}
